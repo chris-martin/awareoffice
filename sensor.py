@@ -89,7 +89,7 @@ except PhidgetException as e:
 print("Waiting for attach....")
 
 try:
-    temperatureSensor.waitForAttach(10000)
+    temperatureSensor.waitForAttach(2000)
 except PhidgetException as e:
     print("Phidget Exception %i: %s" % (e.code, e.details))
     try:
@@ -103,11 +103,11 @@ except PhidgetException as e:
 else:
     DisplayDeviceInfo()
 
-print("Setting Thermocouple type...")
-temperatureSensor.setThermocoupleType(0, ThermocoupleType.PHIDGET_TEMPERATURE_SENSOR_K_TYPE)
+#print("Setting Thermocouple type...")
+#temperatureSensor.setThermocoupleType(0, ThermocoupleType.PHIDGET_TEMPERATURE_SENSOR_K_TYPE)
 
 print("Setting sensitivity of the thermocouple....")
-temperatureSensor.setTemperatureChangeTrigger(0, 0.10)
+temperatureSensor.setTemperatureChangeTrigger(0, 0.01)
 sleep(5) #sleep for 5 seconds
 print("Sensitivity of thermocouple index 0 is now %f" % (temperatureSensor.getTemperatureChangeTrigger(0)))
 
