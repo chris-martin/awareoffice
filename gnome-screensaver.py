@@ -29,7 +29,10 @@ screensaver = bus.get_object('org.gnome.ScreenSaver', '/org/gnome/ScreenSaver')
 iface = dbus.Interface(screensaver, 'org.gnome.ScreenSaver')
 
 import sys
-arg = sys.argv[1]
-if arg == 'lock':
-  iface.Lock()
+if len(sys.argv) > 1:
+  arg = sys.argv[1]
+  if arg == 'lock':
+    iface.Lock()
+  if arg == 'idle':
+    print iface.GetActiveTime()
 

@@ -1,3 +1,0 @@
-Gnome-screensaver dbus documentation:
-  http://people.gnome.org/~mccann/gnome-screensaver/docs/gnome-screensaver.html
-
