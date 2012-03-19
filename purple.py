@@ -14,7 +14,7 @@ def go():
     sum = sum + float(row[0])
   if count:
     avg = sum / count
-    if avg < 25:
+    if avg < 22.5:
       status = 'away'
       message = 'Away'
     else:

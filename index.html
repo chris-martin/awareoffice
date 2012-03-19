@@ -6,7 +6,7 @@
     <script>
       var line, th1, th2;
       function init() {
-        var smoothie = new SmoothieChart({ minValue: 21, maxValue: 31 });
+        var smoothie = new SmoothieChart({ minValue: 20, maxValue: 25, grid: { verticalSections: 5, millisPerLine: 1000 } });
         smoothie.streamTo($('canvas')[0]);
         line = new TimeSeries();
         smoothie.addTimeSeries(line,
