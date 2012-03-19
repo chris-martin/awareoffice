@@ -13,7 +13,7 @@ def recent():
     con.row_factory = dict_factory
     c = con.cursor()
     c.execute("""select * from temperature_event
-      where datetime(timestamp, '+10 seconds') > datetime('now')""")
+      where datetime(timestamp, 'unixepoch', '+10 seconds') > datetime('now')""")
     events = []
     for row in c:
       events.append(row)
