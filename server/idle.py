@@ -1,5 +1,8 @@
 # https://gist.github.com/1879754
 
+# We run this script as a separate process because, for reasons unknown,
+# it gives a segmentation fault when run by a sub-thread.
+
 import ctypes, os
 
 class XScreenSaverInfo( ctypes.Structure):
@@ -18,5 +21,4 @@ xss.XScreenSaverAllocInfo.restype = ctypes.POINTER(XScreenSaverInfo)
 xssinfo = xss.XScreenSaverAllocInfo()
 xss.XScreenSaverQueryInfo(display, xlib.XDefaultRootWindow(display), xssinfo)
 
-print "idle: %d ms" % xssinfo.contents.idle
-
+print "%d" % xssinfo.contents.idle

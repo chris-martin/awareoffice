@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="smoothie.js"></script>
+    <script src="jquery-1.7.1.js"></script>
+    <script>
+
+      var smoothie,
+        lines = {},
+        colors = [ 'rgb(0, 255, 0)', 'rgb(0, 0, 255)', 'rgb(255, 0, 0)' ],
+        range = [ 19, 27 ];
+
+      $(function() {
+        smoothie = new SmoothieChart({ minValue: range[0], maxValue: range[1],
+          grid: { verticalSections: range[1]-range[0], millisPerLine: 1000 } });
+        smoothie.streamTo($('canvas')[0]);
+        update();
+      });
+
+      function getLine(id) {
+        return lines[id] = lines[id] || createLine();
+        function createLine() {
+          var line = [ new TimeSeries(), new TimeSeries() ];
+          smoothie.addTimeSeries(line[0],
+            { strokeStyle: colors[$.map(lines).length % colors.length], lineWidth: 2 });
+          smoothie.addTimeSeries(line[1],
+            { strokeStyle: colors[$.map(lines).length % colors.length], lineWidth: 4, dots: true });
+          return line;
+        }
+      }
+
+      function update() {
+        $.ajax({
+          url: 'all.json',
+          dataType: 'json',
+          success: function(data) {
+            $.each(data.temperature_events, function(i, event) {
+              if (i != data.temperature_events.length - 1) return;
+              getLine(event.sensor_id)[0].append(event.timestamp * 1000, event.temperature);
+              if ($.grep(data.idle_events, function(x) {
+                return x.sensor_id === event.sensor_id && Math.abs(x.timestamp - event.timestamp) < 0.5;
+              }).length)
+                getLine(event.sensor_id)[1].append(event.timestamp * 1000, event.temperature);
+            });
+          },
+          complete: function() {
+            setTimeout(update, 500);
+          }
+        });
+      }
+
+    </script>
+  <head>
+  <body>
+    <canvas width="800" height="300"></canvas>
+  </body>
+</html>

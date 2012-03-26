@@ -44,7 +44,7 @@ function TimeSeries(options) {
   options.resetBounds = options.resetBounds || true; // Enable or disable the resetBounds timer
   this.options = options;
   this.data = [];
-  
+
   this.maxValue = Number.NaN; // The maximum value ever seen in this time series.
   this.minValue = Number.NaN; // The minimum value ever seen in this time series.
 
@@ -131,7 +131,7 @@ SmoothieChart.prototype.render = function(canvas, time) {
 
   // Move the origin.
   canvasContext.translate(dimensions.left, dimensions.top);
-  
+
   // Create a clipped rectangle - anything we draw will be constrained to this rectangle.
   // This prevents the occasional pixels from curves near the edges overrunning and creating
   // screen cheese (that phrase should neeed no explanation).
@@ -229,62 +229,76 @@ SmoothieChart.prototype.render = function(canvas, time) {
     canvasContext.lineWidth = seriesOptions.lineWidth || 1;
     canvasContext.fillStyle = seriesOptions.fillStyle;
     canvasContext.strokeStyle = seriesOptions.strokeStyle || '#ffffff';
-    // Draw the line...
-    canvasContext.beginPath();
-    // Retain lastX, lastY for calculating the control points of bezier curves.
-    var firstX = 0, lastX = 0, lastY = 0;
-    for (var i = 0; i < dataSet.length; i++) {
-      // TODO: Deal with dataSet.length < 2.
-      var x = Math.round(dimensions.width - ((time - dataSet[i][0]) / options.millisPerPixel));
-      var value = dataSet[i][1];
-      var offset = value - visMinValue;
-      var scaledValue = dimensions.height - (valueRange ? Math.round((offset / valueRange) * dimensions.height) : 0);
-      var y = Math.max(Math.min(scaledValue, dimensions.height - 1), 1); // Ensure line is always on chart.
-
-      if (i == 0) {
-        firstX = x;
-        canvasContext.moveTo(x, y);
+    if (seriesOptions.dots) (function() {
+      for (var i = 0; i < dataSet.length; i++) {
+        var x = Math.round(dimensions.width - ((time - dataSet[i][0]) / options.millisPerPixel));
+        var value = dataSet[i][1];
+        var offset = value - visMinValue;
+        var scaledValue = dimensions.height - (valueRange ? Math.round((offset / valueRange) * dimensions.height) : 0);
+        var y = Math.max(Math.min(scaledValue, dimensions.height - 1), 1); // Ensure line is always on chart.
+        canvasContext.beginPath();
+        canvasContext.arc(x, y, seriesOptions.lineWidth || 5, 0, 2 * Math.PI);
+        canvasContext.lineWidth = 2;
+        canvasContext.stroke();
       }
-      // Great explanation of Bezier curves: http://en.wikipedia.org/wiki/B�zier_curve#Quadratic_curves
-      //
-      // Assuming A was the last point in the line plotted and B is the new point,
-      // we draw a curve with control points P and Q as below.
-      //
-      // A---P
-      //     |
-      //     |
-      //     |
-      //     Q---B
-      //
-      // Importantly, A and P are at the same y coordinate, as are B and Q. This is
-      // so adjacent curves appear to flow as one.
-      //
-      else {
-        switch (options.interpolation) {
-        case "line":
-          canvasContext.lineTo(x,y);
-          break;
-        case "bezier":
-        default:
-          canvasContext.bezierCurveTo( // startPoint (A) is implicit from last iteration of loop
-            Math.round((lastX + x) / 2), lastY, // controlPoint1 (P)
-            Math.round((lastX + x)) / 2, y, // controlPoint2 (Q)
-            x, y); // endPoint (B)
-          break;
+    })(); else (function() {
+      // Draw the line...
+      canvasContext.beginPath();
+      // Retain lastX, lastY for calculating the control points of bezier curves.
+      var firstX = 0, lastX = 0, lastY = 0;
+      for (var i = 0; i < dataSet.length; i++) {
+        // TODO: Deal with dataSet.length < 2.
+        var x = Math.round(dimensions.width - ((time - dataSet[i][0]) / options.millisPerPixel));
+        var value = dataSet[i][1];
+        var offset = value - visMinValue;
+        var scaledValue = dimensions.height - (valueRange ? Math.round((offset / valueRange) * dimensions.height) : 0);
+        var y = Math.max(Math.min(scaledValue, dimensions.height - 1), 1); // Ensure line is always on chart.
+
+        if (i == 0) {
+          firstX = x;
+          canvasContext.moveTo(x, y);
         }
-      }
+        // Great explanation of Bezier curves: http://en.wikipedia.org/wiki/B�zier_curve#Quadratic_curves
+        //
+        // Assuming A was the last point in the line plotted and B is the new point,
+        // we draw a curve with control points P and Q as below.
+        //
+        // A---P
+        //     |
+        //     |
+        //     |
+        //     Q---B
+        //
+        // Importantly, A and P are at the same y coordinate, as are B and Q. This is
+        // so adjacent curves appear to flow as one.
+        //
+        else {
+          switch (options.interpolation) {
+          case "line":
+            canvasContext.lineTo(x,y);
+            break;
+          case "bezier":
+          default:
+            canvasContext.bezierCurveTo( // startPoint (A) is implicit from last iteration of loop
+              Math.round((lastX + x) / 2), lastY, // controlPoint1 (P)
+              Math.round((lastX + x)) / 2, y, // controlPoint2 (Q)
+              x, y); // endPoint (B)
+            break;
+          }
+        }
 
-      lastX = x, lastY = y;
-    }
-    if (dataSet.length > 0 && seriesOptions.fillStyle) {
-      // Close up the fill region.
-      canvasContext.lineTo(dimensions.width + seriesOptions.lineWidth + 1, lastY);
-      canvasContext.lineTo(dimensions.width + seriesOptions.lineWidth + 1, dimensions.height + seriesOptions.lineWidth + 1);
-      canvasContext.lineTo(firstX, dimensions.height + seriesOptions.lineWidth);
-      canvasContext.fill();
-    }
-    canvasContext.stroke();
-    canvasContext.closePath();
+        lastX = x, lastY = y;
+      }
+      if (dataSet.length > 0 && seriesOptions.fillStyle) {
+        // Close up the fill region.
+        canvasContext.lineTo(dimensions.width + seriesOptions.lineWidth + 1, lastY);
+        canvasContext.lineTo(dimensions.width + seriesOptions.lineWidth + 1, dimensions.height + seriesOptions.lineWidth + 1);
+        canvasContext.lineTo(firstX, dimensions.height + seriesOptions.lineWidth);
+        canvasContext.fill();
+      }
+      canvasContext.stroke();
+      canvasContext.closePath();
+    })();
     canvasContext.restore();
   }
 
