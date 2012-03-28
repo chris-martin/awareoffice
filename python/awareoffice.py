@@ -24,7 +24,7 @@ purple_thread.start()
 idle_thread = idle.IdleThread(id = args.id, remote = args.remote)
 idle_thread.start()
 
-bottle.run(host='0.0.0.0', port=args.port)
+bottle.run(server=bottle.PasteServer, host='0.0.0.0', port=args.port)
 
 purple_thread.halt()
 
