@@ -22,9 +22,8 @@ class PurpleThread ( Thread ):
     c = con.cursor()
     c.execute("""
       select tmp from tmp_event
-      where datetime(ts, 'unixepoch', '+5 seconds') > datetime(?)
-      and id = ?
-    """, (int(time.time()), self.id))
+      where ts > ? and id = ?
+    """, (int((time.time() - 5) * 1000), self.id))
     count = 0
     sum = 0
     for row in c:

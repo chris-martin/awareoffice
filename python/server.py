@@ -6,19 +6,15 @@ import temperature, idle
 @get('/all.json')
 def all_json():
   return json.dumps({
-    'tmp': temperature.get_recent('+10 seconds'),
-    'idle': idle.get_recent('+10 seconds'),
+    'tmp': temperature.get_recent(10),
+    'idle': idle.get_recent(10),
   })
 
 @get('/idle.json')
 def idle_json():
   return json.dumps({
-    'events': idle.get_recent('+5 minutes')
+    'events': idle.get_recent(5 * 60)
   })
-
-@get('/idle/<id>.html')
-def idle_id_txt(id):
-  return idle.get_id_txt(id)
 
 @get('/<filename>.html')
 def html(filename):
@@ -39,6 +35,7 @@ def html(filename):
 
 @post('/')
 def update():
+  print request.body.getvalue()
   data = json.loads(request.body.getvalue())
   temperature.save_many(data.get('tmp', []))
   idle.save_many(data.get('idle', []))

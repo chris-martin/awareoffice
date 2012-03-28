@@ -33,9 +33,9 @@ class SensorThread ( Thread ):
   def onChange(self, e):
     x = {
       'id': self.id,
-      'amb': self.sensor.getAmbientTemperature(),
-      'tmp': e.temperature,
-      'ts': int(time.time()),
+      'amb': int(self.sensor.getAmbientTemperature() * 100),
+      'tmp': int(e.temperature * 100),
+      'ts': int(time.time() * 1000),
     }
     save_many([x])
     self.remote_backlog.append(x)
@@ -63,15 +63,15 @@ def save_many(list):
 
   con.commit()
 
-def get_recent(range):
+def get_recent(sec):
 
   con = db.getCon()
   con.row_factory = db.dict_factory
   c = con.cursor()
   c.execute("""
     select * from tmp_event
-    where datetime(ts, 'unixepoch', ?) > datetime(?)
-  """, (range, int(time.time())))
+    where ts > ? order by ts desc
+  """, int((time.time() - sec) * 1000))
   events = []
   for row in c: events.append(row)
   return events

@@ -7,13 +7,20 @@ def init():
 
   con = getCon()
 
+  # ts : milliseconds utc
+  # id : the sensor/machine/user id name
+
+  # temperatures are stored as degrees celcius times 100
+  # tmp : temperature
+  # amb : ambient temperature
+
   con.cursor().execute('''
     create table if not exists tmp_event (
-      ts text, id text, amb integer, tmp integer )''')
+      ts integer, id text, amb integer, tmp integer )''')
 
   con.cursor().execute('''
     create table if not exists idle_event (
-      ts text, id text )''')
+      ts integer, id text )''')
 
   con.commit()
 

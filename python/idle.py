@@ -28,41 +28,30 @@ def idleMs():
   return int(commands.getoutput('python python/idle.py'))
 
 def save_now(id):
-  save_many([{ 'id': id, 'ts': int(time.time()) }])
+  save_many([{ 'id': id, 'ts': int(time.time() * 1000) }])
 
 def save_many(list):
   con = db.getCon()
-  con.cursor().executemany("insert into idle_event values (:ts, :id)", list)
+  con.cursor().executemany("""
+    insert into idle_event
+    values (:ts, :id)
+  """, list)
   con.commit()
 
-# retrieves all idle events from the past [range] amount of time
-def get_recent(range):
+# retrieves all idle events from the past [sec] seconds
+def get_recent(sec):
   con = db.getCon()
   con.row_factory = db.dict_factory
   c = con.cursor()
   c.execute("""
     select * from idle_event
-    where datetime(ts, 'unixepoch', ?) > datetime(?)
-    order by ts desc
-  """, (range, int(time.time())))
+    where ts > ? order by ts desc
+  """,
+    int((time.time() - sec) * 1000))
   events = []
   for row in c:
     events.append(row)
   return events
-
-def get_id_txt(id):
-  con = db.getCon()
-  c = con.cursor()
-  c.execute("""
-    select strftime('%H:%M:%S', datetime(ts, 'unixepoch', 'localtime')) from idle_event
-    where datetime(ts, 'unixepoch', '+5 minutes') > datetime(?)
-    and id = ? order by ts desc
-  """, (id, int(time.time())))
-  response = '<h1>Last five minutes of keyboard/mouse activity events for %s</h1><ul>' % id
-  for row in c:
-    response += '<li>%s</li>' % row[0]
-  response += '</ul>'
-  return response
 
 # We run this script as a separate process because, for reasons unknown,
 # it gives a segmentation fault when run by a sub-thread.

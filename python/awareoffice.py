@@ -13,12 +13,20 @@ def parseArgs():
   return parser.parse_args()
 
 args = parseArgs()
+
 db.init()
-temperature.SensorThread(id = args.id, remote = args.remote).start()
+
+tmp_thread = temperature.SensorThread(id = args.id, remote = args.remote)
+tmp_thread.start()
+
 purple_thread = purple.PurpleThread(id = args.id)
 purple_thread.start()
+
 idle_thread = idle.IdleThread(id = args.id, remote = args.remote)
 idle_thread.start()
+
 bottle.run(host=args.host, port=args.port)
+
 purple_thread.halt()
+
 idle_thread.halt()
