@@ -35,7 +35,6 @@ def html(filename):
 
 @post('/')
 def update():
-  print request.body.getvalue()
   data = json.loads(request.body.getvalue())
   temperature.save_many(data.get('tmp', []))
   idle.save_many(data.get('idle', []))

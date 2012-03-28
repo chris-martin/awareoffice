@@ -4,7 +4,7 @@ var smoothie,
   range = [ 19, 27 ];
 
 $(function() {
-  smoothie = new SmoothieChart({ minValue: range[0], maxValue: range[1],
+  smoothie = new SmoothieChart({ minValue: range[0], maxValue: range[1], millisPerPixel: 40,
     grid: { verticalSections: range[1]-range[0], millisPerLine: 1000 } });
   smoothie.streamTo($('canvas')[0]);
   update();
@@ -32,7 +32,7 @@ function update() {
   $.ajax({
     url: 'all.json',
     dataType: 'json',
-    timeout: 1000,
+    /*timeout: 1000,*/
     success: function(data) {
       $.each(data.tmp, function(i, event) {
         if (i != data.tmp.length - 1) return;
@@ -44,7 +44,7 @@ function update() {
       });
     },
     complete: function() {
-      setTimeout(update, 500);
+      setTimeout(update, 1000);
     }
   });
 }
