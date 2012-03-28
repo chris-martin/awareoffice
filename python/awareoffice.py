@@ -9,7 +9,7 @@ def parseArgs():
   parser.add_argument('--http_host', default='localhost', help='the host name for this web server')
   parser.add_argument('--http_port', default='8080', help='the port number for this web server')
   parser.add_argument('--sensor_id', default=gethostname(), help='a string identifying the sensor')
-  parser.add_argument('--aggregator', help='the url of the central server')
+  parser.add_argument('--remote', help='the url of the central server')
   return parser.parse_args()
 
 args = parseArgs()
