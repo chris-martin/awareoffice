@@ -14,8 +14,9 @@ class SensorThread ( Thread ):
     super(SensorThread, self).__init__()
     self.id = id
     self.remote = remote
-    self.remote_backlog = []
-    self.remote_time = self.now()
+    if self.remote:
+      self.remote_backlog = []
+      self.remote_time = self.now()
 
   def run(self):
 
@@ -38,12 +39,13 @@ class SensorThread ( Thread ):
       'ts': int(time.time() * 1000),
     }
     save_many([x])
-    self.remote_backlog.append(x)
-    self.clear_backlog()
+    if self.remote:
+      self.remote_backlog.append(x)
+      self.clear_backlog()
 
   def clear_backlog(self):
     now = self.now()
-    if self.remote and now != self.remote_time:
+    if now != self.remote_time:
       urlopen(self.remote, json.dumps({ 'tmp': self.remote_backlog }))
       self.remote_time = self.now()
       self.remote_backlog = []
