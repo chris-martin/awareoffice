@@ -30,6 +30,11 @@ def javascript(filename):
 def html(filename):
   return static_file('web/%s.css' % filename, root='.')
 
+
+@get('/images/<filename>')
+def html(filename):
+  return static_file('web/images/%s' % filename, root='.')
+
 @post('/')
 def update():
 
