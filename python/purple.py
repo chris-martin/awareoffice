@@ -23,7 +23,9 @@ class PurpleThread ( Thread ):
     c.execute("""
       select tmp from tmp_event
       where ts > ? and id = ?
-    """, (int((time.time() - 5) * 1000), self.id))
+    """, (
+      int((time.time() - 5) * 1000), self.id),
+    )
     count = 0
     sum = 0
     for row in c:

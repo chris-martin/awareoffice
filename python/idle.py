@@ -46,8 +46,9 @@ def get_recent(sec):
   c.execute("""
     select * from idle_event
     where ts > ? order by ts desc
-  """,
-    int((time.time() - sec) * 1000))
+  """, (
+    int((time.time() - sec) * 1000),
+  ))
   events = []
   for row in c:
     events.append(row)
