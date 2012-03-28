@@ -50,6 +50,16 @@ class SensorThread ( Thread ):
   def now(self):
     return int(time.time() / 2)
 
+def save_list(list):
+
+  con = db.getCon()
+
+  con.cursor().execute("""
+    insert into temperature_event values (:timestamp, :sensor_id, :ambient, :temperature)
+  """, list)
+
+  con.commit()
+
 def save(id, ambient, temperature, timestamp=None):
 
   con = db.getCon()
