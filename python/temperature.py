@@ -35,7 +35,7 @@ class SensorThread ( Thread ):
       'id': self.id,
       'amb': self.sensor.getAmbientTemperature(),
       'tmp': e.temperature,
-      'ts': time.time(),
+      'ts': int(time.time()),
     }
     save_many([x])
     self.remote_backlog.append(x)
@@ -71,7 +71,7 @@ def get_recent(range):
   c.execute("""
     select * from tmp_event
     where datetime(ts, 'unixepoch', ?) > datetime(?)
-  """, (range, time.time()))
+  """, (range, int(time.time())))
   events = []
   for row in c: events.append(row)
   return events

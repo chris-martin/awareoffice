@@ -24,7 +24,7 @@ class PurpleThread ( Thread ):
       select tmp from tmp_event
       where datetime(ts, 'unixepoch', '+5 seconds') > datetime(?)
       and id = ?
-    """, (time.time(), self.id))
+    """, (int(time.time()), self.id))
     count = 0
     sum = 0
     for row in c:
