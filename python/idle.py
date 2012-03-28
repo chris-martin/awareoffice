@@ -7,7 +7,7 @@ import db
 
 class IdleThread ( Thread ):
 
-  def __init__(self, sensorId):
+  def __init__(self, sensorId, remote=None):
     super(IdleThread, self).__init__()
     self._halt = False
     self.sensorId = sensorId
@@ -22,21 +22,33 @@ class IdleThread ( Thread ):
 
   def go(self):
     if self.idleMs() < 2000:
-      con = db.getCon()
-      con.cursor().execute("""insert into idle_event
-        values (strftime('%s', 'now'), ?)""",
-        (self.sensorId,))
-      con.commit()
+      save(id = self.sensorId)
 
   def halt(self):
     self._halt = True
+
+def save(id, timestamp=None):
+  con = db.getCon()
+  if timestamp is None:
+    con.cursor().execute("""
+      insert into idle_event
+      values (strftime('%s', 'now'), ?)
+    """, (id,))
+  else:
+    con.cursor().execute("""
+      insert into idle_event
+      values (?, ?)
+    """, (timestamp, id,))
+  con.commit()
 
 def get_events():
   con = db.getCon()
   con.row_factory = db.dict_factory
   c = con.cursor()
-  c.execute("""select * from idle_event
-    where datetime(timestamp, 'unixepoch', '+10 seconds') > datetime('now')""")
+  c.execute("""
+    select * from idle_event
+    where datetime(timestamp, 'unixepoch', '+10 seconds') > datetime('now')
+  """)
   events = []
   for row in c:
     events.append(row)
@@ -46,8 +58,10 @@ def get_json():
   con = db.getCon()
   con.row_factory = db.dict_factory
   c = con.cursor()
-  c.execute("""select * from idle_event
-    where datetime(timestamp, 'unixepoch', '+5 minutes') > datetime('now')""")
+  c.execute("""
+    select * from idle_event
+    where datetime(timestamp, 'unixepoch', '+5 minutes') > datetime('now')
+  """)
   events = []
   for row in c:
     events.append(row)
@@ -56,10 +70,11 @@ def get_json():
 def get_id_txt(id):
   con = db.getCon()
   c = con.cursor()
-  c.execute("""select strftime('%H:%M:%S', datetime(timestamp, 'unixepoch', 'localtime')) from idle_event
+  c.execute("""
+    select strftime('%H:%M:%S', datetime(timestamp, 'unixepoch', 'localtime')) from idle_event
     where datetime(timestamp, 'unixepoch', '+5 minutes') > datetime('now')
-    and sensor_id = ? order by timestamp desc""",
-    (id,))
+    and sensor_id = ? order by timestamp desc
+  """, (id,))
   response = '<h1>Last five minutes of keyboard/mouse activity events for %s</h1><ul>' % id
   for row in c:
     response += '<li>%s</li>' % row[0]

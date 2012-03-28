@@ -1,31 +1,51 @@
-from bottle import route, static_file
+from bottle import get, post, static_file, request
 import json
 
 import temperature, idle
 
-@route('/all.json')
-def sensor_json():
+@get('/all.json')
+def all_json():
   return json.dumps({
     'temperature_events': temperature.get_events(),
     'idle_events': idle.get_events(),
   })
 
-@route('/idle.json')
+@get('/idle.json')
 def idle_json():
   return idle.get_json()
 
-@route('/idle/<id>.html')
+@get('/idle/<id>.html')
 def idle_id_txt(id):
   return idle.get_id_txt(id)
 
-@route('/<filename>.html')
+@get('/<filename>.html')
 def html(filename):
   return static_file('web/%s.html' % filename, root='.')
 
-@route('/<filename>.js')
+@get('/<filename>.js')
 def javascript(filename):
   return static_file('web/%s.js' % filename, root='.')
 
-@route('/<filename>.css')
+@get('/<filename>.css')
 def html(filename):
   return static_file('web/%s.css' % filename, root='.')
+
+@post('/')
+def update():
+
+  print request.body.getvalue()
+  data = json.loads(request.body.getvalue())
+
+  for e in data.get('temperature_events', []):
+    temperature.save(
+      id = e['sensor_id'],
+      temperature = e['temperature'],
+      ambient = e['ambient'],
+      timestamp = e.get('timestamp'),
+    )
+
+  for e in data.get('idle_events', []):
+    idle.save(
+      id = e.sensor_id,
+      timestamp = e.get('timestamp'),
+    )
