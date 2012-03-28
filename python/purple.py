@@ -18,8 +18,7 @@ class PurpleThread ( Thread ):
       sleep(1)
 
   def go(self):
-    con = db.getCon()
-    c = con.cursor()
+    c = db.getCon().cursor()
     c.execute("""
       select tmp from tmp_event
       where ts > ? and id = ?

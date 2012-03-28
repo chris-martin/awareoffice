@@ -40,9 +40,7 @@ def save_many(list):
 
 # retrieves all idle events from the past [sec] seconds
 def get_recent(sec):
-  con = db.getCon()
-  con.row_factory = db.dict_factory
-  c = con.cursor()
+  c = db.getCon().cursor()
   c.execute("""
     select * from idle_event
     where ts > ? order by ts desc

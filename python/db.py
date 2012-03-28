@@ -1,7 +1,7 @@
 import sqlite3
+import threading
 
-def getCon():
-  return sqlite3.connect('db.sqlite')
+_con_attr = 'awareoffice_db_connection'
 
 def init():
 
@@ -24,8 +24,19 @@ def init():
 
   con.commit()
 
-def dict_factory(cursor, row):
+def _dict_factory(cursor, row):
   d = {}
   for idx, col in enumerate(cursor.description):
     d[col[0]] = row[idx]
   return d
+
+def getCon():
+
+  local = threading.local()
+
+  if not hasattr(local, _con_attr):
+    con = sqlite3.connect('db.sqlite')
+    con.row_factory = _dict_factory
+    setattr(local, _con_attr, con)
+
+  return getattr(local, _con_attr)
