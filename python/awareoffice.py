@@ -1,43 +1,8 @@
 from argparse import ArgumentParser
-import bottle, json
+import bottle
 from socket import gethostname
 
-import temperature, idle, purple, db
-
-@bottle.route('/all.json')
-def sensor_json():
-  try:
-    return json.dumps({
-      'temperature_events': temperature.get_events(),
-      'idle_events': idle.get_events(),
-    })
-  except Exception as e:
-    return e
-
-@bottle.route('/idle.json')
-def idle_json():
-  try:
-    return idle.get_json()
-  except Exception as e:
-    return e
-
-@bottle.route('/idle/<id>.html')
-def idle_id_txt(id):
-  try:
-    return idle.get_id_txt(id)
-  except Exception as e:
-    return e
-
-@bottle.route('/all.html')
-def sensor_html():
-  try:
-    return bottle.static_file('web/all.html', root='.')
-  except Exception as e:
-    return e
-
-@bottle.route('/<filename>.js')
-def javascript(filename):
-  return bottle.static_file('web/%s.js' % filename, root='.')
+import server, temperature, idle, purple, db
 
 def parseArgs():
   parser = ArgumentParser()
