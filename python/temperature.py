@@ -44,7 +44,7 @@ class SensorThread ( Thread ):
   def clear_backlog(self):
     now = self.now()
     if self.remote and now != self.remote_time:
-      urlopen(self.remote, json.dumps({ 'temperature_events': self.remote_backlog }))
+      urlopen(self.remote, json.dumps({ 'tmp': self.remote_backlog }))
       self.remote_time = self.now()
       self.remote_backlog = []
 
@@ -58,7 +58,7 @@ def save_many(list):
 
   con.cursor().executemany("""
     insert into tmp_event
-    values (:timestamp, :sensor_id, :ambient, :temperature)
+    values (:ts, :id, :amb, :tmp)
   """, list)
 
   con.commit()
@@ -69,8 +69,8 @@ def get_recent(range):
   con.row_factory = db.dict_factory
   c = con.cursor()
   c.execute("""
-    select * from temperature_event
-    where datetime(timestamp, 'unixepoch', ?) > datetime(?)
+    select * from tmp_event
+    where datetime(ts, 'unixepoch', ?) > datetime(?)
   """, (range, time.time()))
   events = []
   for row in c: events.append(row)
