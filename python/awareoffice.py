@@ -6,7 +6,6 @@ import server, temperature, idle, purple, db
 
 def parseArgs():
   parser = ArgumentParser()
-  parser.add_argument('--host', default='localhost', help='the host name for this web server')
   parser.add_argument('--port', default='8080', help='the port number for this web server')
   parser.add_argument('--id', default=gethostname(), help='a string identifying the sensor')
   parser.add_argument('--remote', help='the url of the central server')
@@ -25,7 +24,7 @@ purple_thread.start()
 idle_thread = idle.IdleThread(id = args.id, remote = args.remote)
 idle_thread.start()
 
-bottle.run(host=args.host, port=args.port)
+bottle.run(host='0.0.0.0', port=args.port)
 
 purple_thread.halt()
 
