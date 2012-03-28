@@ -36,13 +36,7 @@ def update():
   print request.body.getvalue()
   data = json.loads(request.body.getvalue())
 
-  for e in data.get('temperature_events', []):
-    temperature.save(
-      id = e['sensor_id'],
-      temperature = e['temperature'],
-      ambient = e['ambient'],
-      timestamp = e.get('timestamp'),
-    )
+  temperature.save_list(data.get('temperature_events', []))
 
   for e in data.get('idle_events', []):
     idle.save(
