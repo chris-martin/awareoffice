@@ -94,13 +94,13 @@ def idle_id_txt(id):
 @bottle.route('/all.html')
 def sensor_html():
   try:
-    return bottle.static_file('all.html', root='.')
+    return bottle.static_file('web/all.html', root='.')
   except Exception as e:
     return e
 
 @bottle.route('/<filename>.js')
-def javascript_static(filename):
-  return bottle.static_file('%s.js' % filename, root='.')
+def javascript(filename):
+  return bottle.static_file('web/%s.js' % filename, root='.')
 
 class SensorThread ( Thread ):
 
