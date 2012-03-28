@@ -14,10 +14,10 @@ def parseArgs():
 
 args = parseArgs()
 db.init()
-temperature.SensorThread(sensorId = args.id, remote = args.remote).start()
-purple_thread = purple.PurpleThread(sensorId = args.id)
+temperature.SensorThread(id = args.id, remote = args.remote).start()
+purple_thread = purple.PurpleThread(id = args.id)
 purple_thread.start()
-idle_thread = idle.IdleThread(sensorId = args.id, remote = args.remote)
+idle_thread = idle.IdleThread(id = args.id, remote = args.remote)
 idle_thread.start()
 bottle.run(host=args.host, port=args.port)
 purple_thread.halt()
