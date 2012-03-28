@@ -175,7 +175,7 @@ class IdleThread ( Thread ):
       sleep(1)
 
   def idleMs(self):
-    return int(commands.getoutput('python idle.py'))
+    return int(commands.getoutput('python python/idle.py'))
 
   def go(self):
     if self.idleMs() < 2000:
