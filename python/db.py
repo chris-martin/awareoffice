@@ -4,15 +4,17 @@ def getCon():
   return sqlite3.connect('db.sqlite')
 
 def init():
+
   con = getCon()
-  con.cursor().execute('''create table if not exists temperature_event (
-    timestamp    text,
-    sensor_id    text,
-    ambient      integer,
-    temperature  integer )''')
-  con.cursor().execute('''create table if not exists idle_event (
-    timestamp    text,
-    sensor_id    text )''')
+
+  con.cursor().execute('''
+    create table if not exists tmp_event (
+      ts text, id text, amb integer, tmp integer )''')
+
+  con.cursor().execute('''
+    create table if not exists idle_event (
+      ts text, id text )''')
+
   con.commit()
 
 def dict_factory(cursor, row):

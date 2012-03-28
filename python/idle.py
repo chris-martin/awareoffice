@@ -1,79 +1,62 @@
 import commands
 from threading import Thread
 from time import sleep
+import time
 import json
 
 import db
 
 class IdleThread ( Thread ):
 
-  def __init__(self, sensorId, remote=None):
+  def __init__(self, id, remote=None):
     super(IdleThread, self).__init__()
     self._halt = False
-    self.sensorId = sensorId
+    self.id = id
 
   def run(self):
     while not self._halt:
-      self.go()
+      if isActive(): save_now(self.id)
       sleep(1)
-
-  def idleMs(self):
-    return int(commands.getoutput('python python/idle.py'))
-
-  def go(self):
-    if self.idleMs() < 2000:
-      save(id = self.sensorId)
 
   def halt(self):
     self._halt = True
 
-def save(id, timestamp=None):
+def isActive():
+  return idleMs() < 2000
+
+def idleMs():
+  return int(commands.getoutput('python python/idle.py'))
+
+def save_now(id):
+  save_many([{ 'id': id, 'ts': time.time() }])
+
+def save_many(list):
   con = db.getCon()
-  if timestamp is None:
-    con.cursor().execute("""
-      insert into idle_event
-      values (strftime('%s', 'now'), ?)
-    """, (id,))
-  else:
-    con.cursor().execute("""
-      insert into idle_event
-      values (?, ?)
-    """, (timestamp, id,))
+  con.cursor().executemany("insert into idle_event values (:ts, :id)", list)
   con.commit()
 
-def get_events():
+# retrieves all idle events from the past [range] amount of time
+def get_recent(range):
   con = db.getCon()
   con.row_factory = db.dict_factory
   c = con.cursor()
   c.execute("""
     select * from idle_event
-    where datetime(timestamp, 'unixepoch', '+10 seconds') > datetime('now')
-  """)
+    where datetime(ts, 'unixepoch', ?) > datetime(?)
+    order by ts desc
+  """, int(range, time.time()))
   events = []
   for row in c:
     events.append(row)
   return events
 
-def get_json():
-  con = db.getCon()
-  con.row_factory = db.dict_factory
-  c = con.cursor()
-  c.execute("""
-    select * from idle_event
-    where datetime(timestamp, 'unixepoch', '+5 minutes') > datetime('now')
-  """)
-  events = []
-  for row in c:
-    events.append(row)
-  return json.dumps({ 'events': events })
-
 def get_id_txt(id):
   con = db.getCon()
   c = con.cursor()
   c.execute("""
-    select strftime('%H:%M:%S', datetime(timestamp, 'unixepoch', 'localtime')) from idle_event
-    where datetime(timestamp, 'unixepoch', '+5 minutes') > datetime('now')
-    and sensor_id = ? order by timestamp desc
+    select strftime('%H:%M:%S', datetime(ts, 'unixepoch', 'localtime')) from idle_event
+    where datetime(ts, 'unixepoch', '+5 minutes') > datetime('now')
+    and id = ? order by ts desc
   """, (id,))
   response = '<h1>Last five minutes of keyboard/mouse activity events for %s</h1><ul>' % id
   for row in c:

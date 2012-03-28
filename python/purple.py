@@ -1,15 +1,16 @@
 from threading import Thread
 from time import sleep
+import time
 import os
 
 import db
 
 class PurpleThread ( Thread ):
 
-  def __init__(self, sensorId):
+  def __init__(self, id):
     super(PurpleThread, self).__init__()
     self._halt = False
-    self.sensorId = sensorId
+    self.id = id
 
   def run(self):
     while not self._halt:
@@ -19,14 +20,16 @@ class PurpleThread ( Thread ):
   def go(self):
     con = db.getCon()
     c = con.cursor()
-    c.execute("""select temperature from temperature_event
-      where datetime(timestamp, 'unixepoch', '+5 seconds') > datetime('now')
-        and sensor_id = ?""", (self.sensorId,))
+    c.execute("""
+      select tmp from tmp_event
+      where datetime(ts, 'unixepoch', '+5 seconds') > datetime(?)
+      and id = ?
+    """, (time.time(), self.id))
     count = 0
     sum = 0
     for row in c:
       count += 1
-      sum = sum + float(row[0])
+      sum += float(row[0])
     if count:
       avg = sum / count
       if avg < 22.5:

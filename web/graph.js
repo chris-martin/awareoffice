@@ -34,13 +34,13 @@ function update() {
     dataType: 'json',
     timeout: 1000,
     success: function(data) {
-      $.each(data.temperature_events, function(i, event) {
-        if (i != data.temperature_events.length - 1) return;
-        getLine(event.sensor_id)[0].append(event.timestamp * 1000, event.temperature);
-        if ($.grep(data.idle_events, function(x) {
-          return x.sensor_id === event.sensor_id && Math.abs(x.timestamp - event.timestamp) < 0.5;
+      $.each(data.tmp, function(i, event) {
+        if (i != data.tmp.length - 1) return;
+        getLine(event.id)[0].append(event.ts * 1000, event.tmp);
+        if ($.grep(data.idle, function(x) {
+          return x.id === event.id && Math.abs(x.ts - event.ts) < 0.5;
         }).length)
-          getLine(event.sensor_id)[1].append(event.timestamp * 1000, event.temperature);
+          getLine(event.id)[1].append(event.ts * 1000, event.tmp);
       });
     },
     complete: function() {
