@@ -9,3 +9,9 @@ Dbus
 http://code.google.com/p/dbus-tools/
 http://people.gnome.org/~mccann/gnome-screensaver/docs/gnome-screensaver.html
 
+Python on RHEL6
+---------------
+# yum install python-setuptools
+# curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python
+# pip install -r python/requirements.txt
+
