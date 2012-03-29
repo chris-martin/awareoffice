@@ -34,13 +34,18 @@ function update() {
     dataType: 'json',
     /*timeout: 1000,*/
     success: function(data) {
+
+      // the data comes from the server reverse-chronological
+      data.tmp.reverse();
+      data.idle.reverse();
+
       $.each(data.tmp, function(i, event) {
         if (i != data.tmp.length - 1) return;
         getLine(event.id)[0].append(event.ts, event.tmp / 100);
         if ($.grep(data.idle, function(x) {
           return x.id === event.id && Math.abs(x.ts - event.ts) < 0.5;
         }).length)
-          getLine(event.id)[1].append(event.ts, event.tmp / 100);
+        getLine(event.id)[1].append(event.ts, event.tmp / 100);
       });
     },
     complete: function() {
