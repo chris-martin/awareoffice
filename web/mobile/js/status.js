@@ -37,7 +37,11 @@
 
   function formatTime(ms) {
     var m = Math.round(ms / 1000 / 60);
+    if (m < 1) return '';
+
     var h = Math.floor(m / 60);
+    m %= 60;
+
     return h + ':' + (m < 10 ? '0' + m : m);
   }
 
