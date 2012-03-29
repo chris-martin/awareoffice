@@ -17,6 +17,7 @@ img.status-icon {
     width: 1em;
     height: 1em;
     vertical-align: text-top;
+    margin-right: 0.5ex;
 }
 
 .sensor-name {

@@ -2,10 +2,14 @@ from threading import Thread
 from time import sleep
 import time
 import os
-
-import db
+import status
 
 class PurpleThread ( Thread ):
+
+  status_messages = {
+    'away': 'Away',
+    'available': 'Here'
+  }
 
   def __init__(self, id):
     super(PurpleThread, self).__init__()
@@ -18,29 +22,10 @@ class PurpleThread ( Thread ):
       sleep(1)
 
   def go(self):
-    c = db.getCon().cursor()
-    c.execute("""
-      select tmp from tmp_event
-      where ts > ? and id = ?
-    """, (
-      int((time.time() - 5) * 1000),
-      self.id
-    ))
-    count = 0
-    sum = 0
-    for row in c:
-      count += 1
-      sum += float(row['tmp'])
-    sum /= 100
-    if count:
-      avg = sum / count
-      if avg < 22.5:
-        status = 'away'
-        message = 'Away'
-      else:
-        status = 'available'
-        message = 'Here'
-      os.system('purple-remote "setstatus?status=%s&message=%s (%.1f degrees celcius)"' % (status, message, avg))
+    s = status.get_status(self.id)
+    if s is not None:
+      message = self.status_messages[s['status']]
+      os.system('purple-remote "setstatus?status=%s&message=%s (%.1f degrees celsius)"' % (s['status'], message, s['tmp']))
 
   def halt(self):
     self._halt = True

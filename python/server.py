@@ -1,7 +1,7 @@
 from bottle import get, post, static_file, request
 import json
 
-import temperature, idle
+import temperature, idle, status
 
 @get('/all.json')
 def all_json():
@@ -16,22 +16,17 @@ def idle_json():
     'events': idle.get_recent(5 * 60)
   })
 
-@get('/<filename>.html')
-def html(filename):
-  return static_file('web/%s.html' % filename, root='.')
+@get('/status.json')
+def status_json():
+  return json.dumps(status.get_statuses())
 
-@get('/<filename>.js')
-def javascript(filename):
-  return static_file('web/%s.js' % filename, root='.')
+@get('/<path:path>')
+def mobile(path):
+  return static_file('web/mobile/%s' % path, root='.')
 
-@get('/<filename>.css')
-def html(filename):
-  return static_file('web/%s.css' % filename, root='.')
-
-
-@get('/images/<filename>')
-def html(filename):
-  return static_file('web/images/%s' % filename, root='.')
+@get('/')
+def mobile_index():
+  return mobile('index.html')
 
 @post('/')
 def update():

@@ -10,17 +10,17 @@ def init():
   # ts : milliseconds utc
   # id : the sensor/machine/user id name
 
-  # temperatures are stored as degrees celcius times 100
+  # temperatures are stored as degrees celsius times 100
   # tmp : temperature
   # amb : ambient temperature
 
   con.cursor().execute('''
     create table if not exists tmp_event (
-      ts integer, id text, amb integer, tmp integer )''')
+      ts integer, id text, amb real, tmp real )''')
 
   con.cursor().execute('''
     create table if not exists idle_event (
-      ts integer, id text )''')
+      ts integer, id text, idle_time integer )''')
 
   con.commit()
 

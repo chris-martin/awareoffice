@@ -34,8 +34,8 @@ class SensorThread ( Thread ):
   def onChange(self, e):
     x = {
       'id': self.id,
-      'amb': int(self.sensor.getAmbientTemperature() * 100),
-      'tmp': int(e.temperature * 100),
+      'amb': self.sensor.getAmbientTemperature(),
+      'tmp': e.temperature,
       'ts': int(time.time() * 1000),
     }
     save_many([x])
