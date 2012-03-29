@@ -28,13 +28,13 @@ def idleMs():
   return int(commands.getoutput('python python/idle.py'))
 
 def save_now(id):
-  save_many([{ 'id': id, 'ts': int(time.time() * 1000) }])
+  save_many([{ 'id': id, 'ts': int(time.time() * 1000), 'idle_time': idleMs() }])
 
 def save_many(list):
   con = db.getCon()
   con.cursor().executemany("""
     insert into idle_event
-    values (:ts, :id)
+    values (:ts, :id, :idle_time)
   """, list)
   con.commit()
 
