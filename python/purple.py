@@ -23,13 +23,15 @@ class PurpleThread ( Thread ):
       select tmp from tmp_event
       where ts > ? and id = ?
     """, (
-      int((time.time() - 5) * 1000), self.id),
-    )
+      int((time.time() - 5) * 1000),
+      self.id
+    ))
     count = 0
     sum = 0
     for row in c:
       count += 1
       sum += float(row['tmp'])
+    sum /= 100
     if count:
       avg = sum / count
       if avg < 22.5:
