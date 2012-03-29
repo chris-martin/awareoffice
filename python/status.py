@@ -33,14 +33,14 @@ def get_statuses(id=None):
   for id in statuses:
     status = statuses[id]
     query = """
-        select idle_time
+        select ts
         from idle_event
         where id = :id
         order by ts desc
         limit 1
       """
     c.execute(query, { 'id': status['id'] })
-    for row in c: status['idle_time'] = row['idle_time']
+    for row in c: status['idle_time'] = int(time.time() * 1000) - row['ts']
 
   return statuses
 

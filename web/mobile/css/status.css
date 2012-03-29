@@ -29,3 +29,7 @@ img.status-icon {
     padding-right: 1em;
     color: gray;
 }
+
+.loading {
+    color: gray
+}

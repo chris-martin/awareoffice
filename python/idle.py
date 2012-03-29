@@ -15,27 +15,26 @@ class IdleThread ( Thread ):
 
   def run(self):
     while not self._halt:
-      idle_ms = idleMs()
-      if isActive(idle_ms): save_now(self.id, idle_ms)
+      if isActive(): save_now(self.id)
       sleep(1)
 
   def halt(self):
     self._halt = True
 
-def isActive(idle_ms=None):
-  return (idle_ms or idleMs()) < 2000
+def isActive():
+  return idleMs() < 2000
 
 def idleMs():
   return int(commands.getoutput('python python/idle.py'))
 
-def save_now(id, idle_ms=None):
-  save_many([{ 'id': id, 'ts': int(time.time() * 1000), 'idle_time': idle_ms or idleMs() }])
+def save_now(id):
+  save_many([{ 'id': id, 'ts': int(time.time() * 1000) }])
 
 def save_many(list):
   con = db.getCon()
   con.cursor().executemany("""
     insert into idle_event
-    values (:ts, :id, :idle_time)
+    values (:ts, :id)
   """, list)
   con.commit()
 

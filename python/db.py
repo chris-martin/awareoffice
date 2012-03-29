@@ -20,7 +20,7 @@ def init():
 
   con.cursor().execute('''
     create table if not exists idle_event (
-      ts integer, id text, idle_time integer )''')
+      ts integer, id text )''')
 
   con.commit()
 

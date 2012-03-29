@@ -1,25 +1,13 @@
 (function($) {
 
-  var status = [
-    {
-      sensor: 'Chris Martin',
-      status: 'available',
-      idleTime: 181394
-    },
-    {
-      sensor: 'Kelsey Francis',
-      status: 'away',
-      idleTime: 903294
-    }
-  ];
+  var statuses = [];
 
   function update() {
-    render();
     $.ajax({
       url: 'status.json',
       dataType: 'json',
       success: function(data) {
-        status = data;
+        statuses = data;
         render();
       },
       complete: function() {
@@ -30,11 +18,11 @@
 
   function render() {
     $('.sensor-status').empty();
-    $.each(status, function(key, s) {
+    $.each(statuses, function(key, s) {
       $('<li/>').
         append($('<img/>', { 'class': 'status-icon', src: statusIconUrl(s.status) })).
-        append($('<span/>', { 'class': 'sensor-name', text: sensorName(s.sensor) })).
-        append($('<span/>', { 'class': 'idle-time', text: formatTime(s.idleTime) })).
+        append($('<span/>', { 'class': 'sensor-name', text: sensorName(s.id) })).
+        append($('<span/>', { 'class': 'idle-time', text: formatTime(s.idle_time) })).
         appendTo($('ul.sensor-status'));
     });
   }
