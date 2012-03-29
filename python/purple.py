@@ -29,7 +29,7 @@ class PurpleThread ( Thread ):
     sum = 0
     for row in c:
       count += 1
-      sum += float(row[0])
+      sum += float(row['tmp'])
     if count:
       avg = sum / count
       if avg < 22.5:
