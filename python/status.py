@@ -30,6 +30,18 @@ def get_statuses(id=None):
     }
     statuses[id] = status
 
+  for id in statuses:
+    status = statuses[id]
+    query = """
+        select idle_time
+        from idle_event
+        where id = :id
+        order by ts desc
+        limit 1
+      """
+    c.execute(query, { 'id': status['id'] })
+    for row in c: status['idle_time'] = row['idle_time']
+
   return statuses
 
 def status_for_tmp(tmp):
