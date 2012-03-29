@@ -40,7 +40,9 @@ def get_statuses(id=None):
         limit 1
       """
     c.execute(query, { 'id': status['id'] })
-    for row in c: status['idle_time'] = int(time.time() * 1000) - row['ts']
+    row = c.fetchone()
+    if row:
+      status['idle_time'] = int(time.time() * 1000) - row['ts']
 
   return statuses
 

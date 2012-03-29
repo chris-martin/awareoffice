@@ -36,6 +36,8 @@
   }
 
   function formatTime(ms) {
+    if (!ms) return '';
+
     var m = Math.round(ms / 1000 / 60);
     if (m < 1) return '';
 
