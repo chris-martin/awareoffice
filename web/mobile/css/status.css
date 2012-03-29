@@ -1,0 +1,30 @@
+body {
+    font-family: helvetica, arial, sans-serif;
+    font-size: 200%;
+}
+
+ul.sensor-status {
+    padding-left: 0;
+}
+
+ul.sensor-status li {
+    padding-left: 1em;
+    margin-bottom: 0.25em;
+    list-style: none;
+}
+
+img.status-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+}
+
+.sensor-name {
+    width: 100%;
+}
+
+.idle-time {
+    float: right;
+    padding-right: 1em;
+    color: gray;
+}
