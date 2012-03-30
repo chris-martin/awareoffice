@@ -45,7 +45,7 @@ def _select_recent_ids(sec):
   return map(lambda row: row['id'], c)
 
 def _is_available(id, tmp):
-  if (idle.get_latest(id) or 0) > 1000 * (time.time() + 5): return True
+  if (idle.get_latest(id) or 0) > 1000 * (time.time() - 5): return True
   if tmp > 22.5: return True
   return False
 
