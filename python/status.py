@@ -10,6 +10,7 @@ def get(id=None):
     st = _select_latest_status(id)
     if not st: return None
     idle_time = _select_latest_available_time(id)
+    if idle_time: idle_time = time.time() * 1000 - idle_time
     return { 'status': st, 'idle_time': idle_time }
 
   return dict(map(lambda id: [id, get(id)], _select_recent_ids(15)))
@@ -54,7 +55,7 @@ def _status(*args, **kwargs):
 def _get(id=None):
   tmp = temperature.get_recent_avg(5, id)
   if id: return _status(id, tmp)
-  return dict(map(lambda id, tmp: [id, _status(id, tmp)], tmp.iteritems()))
+  return dict(map(lambda (id, tmp): [id, _status(id, tmp)], tmp.iteritems()))
 
 class StatusThread ( Thread ):
 
@@ -69,11 +70,12 @@ class StatusThread ( Thread ):
 
   def go(self):
     now = int(time.time() * 1000)
+    values = map(lambda (id, status): { 'ts': now, 'id': id, 'status': status }, _get().iteritems())
     con = db.getCon()
     con.cursor().executemany("""
       insert into status_event
       values (:ts, :id, :status)
-    """, map(lambda id, status: { 'ts': now, 'id': id, 'status': status }, _get().iteritems()))
+    """, values)
     con.commit()
 
 def run(*args, **kwargs):
