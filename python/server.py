@@ -22,7 +22,7 @@ def status_json():
 
 @get('/<path:path>')
 def mobile(path):
-  return static_file('web/mobile/%s' % path, root='.')
+  return static_file('web/%s' % path, root='.')
 
 @get('/')
 def mobile_index():
