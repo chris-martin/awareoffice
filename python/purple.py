@@ -1,6 +1,5 @@
 from threading import Thread
 from time import sleep
-import time
 import os
 import status
 
@@ -29,3 +28,12 @@ class PurpleThread ( Thread ):
 
   def halt(self):
     self._halt = True
+
+_thread = None
+
+def start(*args, **kwargs):
+  _thread = PurpleThread(*args, **kwargs)
+  _thread.start()
+
+def stop():
+  if _thread: _thread.halt()

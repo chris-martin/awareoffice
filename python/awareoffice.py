@@ -3,6 +3,7 @@ import bottle
 from socket import gethostname
 
 import server, temperature, idle, purple, db
+from report import Report
 
 def parseArgs():
   parser = ArgumentParser()
@@ -12,20 +13,16 @@ def parseArgs():
   return parser.parse_args()
 
 args = parseArgs()
-
 db.init()
+report = Report(args.remote) if args.remote else None
+id = args.id
 
-tmp_thread = temperature.SensorThread(id = args.id, remote = args.remote)
-tmp_thread.start()
+try:
+  temperature.start(id, report)
+  purple.start(id)
+  idle.start(id, report)
+  bottle.run(server=bottle.PasteServer, host='0.0.0.0', port=args.port)
 
-purple_thread = purple.PurpleThread(id = args.id)
-purple_thread.start()
-
-idle_thread = idle.IdleThread(id = args.id, remote = args.remote)
-idle_thread.start()
-
-bottle.run(server=bottle.PasteServer, host='0.0.0.0', port=args.port)
-
-purple_thread.halt()
-
-idle_thread.halt()
+finally:
+  purple.stop()
+  idle.stop()

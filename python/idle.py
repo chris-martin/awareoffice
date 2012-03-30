@@ -2,20 +2,23 @@ import commands
 from threading import Thread
 from time import sleep
 import time
-import json
 
 import db
 
 class IdleThread ( Thread ):
 
-  def __init__(self, id, remote=None):
+  def __init__(self, id, report=None):
     super(IdleThread, self).__init__()
     self._halt = False
     self.id = id
+    self.report = report
 
   def run(self):
     while not self._halt:
-      if isActive(): save_now(self.id)
+      if isActive():
+        x = { 'id': self.id, 'ts': int(time.time() * 1000) }
+        save_many([x])
+        if self.report: self.report.append('idle', x)
       sleep(1)
 
   def halt(self):
@@ -26,9 +29,6 @@ def isActive():
 
 def idleMs():
   return int(commands.getoutput('python python/idle.py'))
-
-def save_now(id):
-  save_many([{ 'id': id, 'ts': int(time.time() * 1000) }])
 
 def save_many(list):
   con = db.getCon()
@@ -51,6 +51,15 @@ def get_recent(sec):
   for row in c:
     events.append(row)
   return events
+
+_thread = None
+
+def start(*args, **kwargs):
+  _thread = IdleThread(*args, **kwargs)
+  _thread.start()
+
+def stop():
+  if _thread: _thread.halt()
 
 # We run this script as a separate process because, for reasons unknown,
 # it gives a segmentation fault when run by a sub-thread.

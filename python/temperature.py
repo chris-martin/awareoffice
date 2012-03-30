@@ -1,6 +1,4 @@
 from threading import Thread
-from urllib import urlopen
-import json
 import time
 
 from Phidgets.PhidgetException import PhidgetException
@@ -8,15 +6,12 @@ from Phidgets.Devices.TemperatureSensor import TemperatureSensor
 
 import db
 
-class SensorThread ( Thread ):
+class TmpThread ( Thread ):
 
-  def __init__(self, id=None, remote=None):
-    super(SensorThread, self).__init__()
+  def __init__(self, id=None, report=None):
+    super(TmpThread, self).__init__()
     self.id = id
-    self.remote = remote
-    if self.remote:
-      self.remote_backlog = []
-      self.remote_time = self.now()
+    self.report = report
 
   def run(self):
 
@@ -39,20 +34,7 @@ class SensorThread ( Thread ):
       'ts': int(time.time() * 1000),
     }
     save_many([x])
-    if self.remote:
-      self.remote_backlog.append(x)
-      self.clear_backlog()
-
-  def clear_backlog(self):
-    now = self.now()
-    if now != self.remote_time:
-      urlopen(self.remote, json.dumps({ 'tmp': self.remote_backlog }))
-      self.remote_time = self.now()
-      self.remote_backlog = []
-
-  # an integer that changes every 2 seconds
-  def now(self):
-    return int(time.time() / 2)
+    if self.report: self.report.append('tmp', x)
 
 def save_many(list):
 
@@ -77,3 +59,9 @@ def get_recent(sec):
   events = []
   for row in c: events.append(row)
   return events
+
+_thread = None
+
+def start(*args, **kwargs):
+  _thread = TmpThread(*args, **kwargs)
+  _thread.start()
