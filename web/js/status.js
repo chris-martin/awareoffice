@@ -24,7 +24,7 @@
       $('<li/>').
         append($('<img/>', { 'class': 'status-icon', src: statusIconUrl(s.status) })).
         append($('<span/>', { 'class': 'sensor-name', text: sensorName(s.id) })).
-        append($('<span/>', { 'class': 'idle-time', text: formatTime(s.idle_time) })).
+        append($('<span/>', { 'class': 'idle-time', text: s.status === 'available' ? '' : formatTime(s.idle_time) })).
         appendTo($('ul.sensor-status'));
     });
   }
