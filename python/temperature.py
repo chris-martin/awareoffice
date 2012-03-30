@@ -68,7 +68,7 @@ class DummyThread ( Thread ):
     self.random.seed(self.seedoffset + int(time.time() / 5))
     x = self.random.randint(20, 25)
     self.random.seed()
-    return x + ((self.random.random() - 0.5) * 6)
+    return x + ((self.random.random() - 0.5))
 
 def save_many(list):
 

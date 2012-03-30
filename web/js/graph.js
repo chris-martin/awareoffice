@@ -32,7 +32,6 @@ function update() {
   $.ajax({
     url: 'all.json',
     dataType: 'json',
-    /*timeout: 1000,*/
     success: function(data) {
 
       // the data comes from the server reverse-chronological
@@ -40,8 +39,10 @@ function update() {
       data.idle.reverse();
 
       $.each(data.tmp, function(i, event) {
-        if (i != data.tmp.length - 1) return;
-        getLine(event.id)[0].append(event.ts, event.tmp);
+        var line = getLine(event.id);
+        if ((line.ts || 0) > event.ts) return;
+        line.ts = event.ts;
+        line[0].append(event.ts, event.tmp);
         if ($.grep(data.idle, function(x) {
           return x.id === event.id && Math.abs(x.ts - event.ts) < 500 ;
         }).length)
