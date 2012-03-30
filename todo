@@ -1,11 +1,3 @@
-Chris
------
-
-status module has a thread that inserts into status table
-
-change the implementation of status.get_status to just read from the status table,
-  and status['idle_time'] also comes from that table
-
 Kelsey
 ------
 

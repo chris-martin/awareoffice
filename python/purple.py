@@ -20,7 +20,7 @@ class PurpleThread ( Thread ):
       sleep(1)
 
   def go(self):
-    s = status.get_status(self.id)
+    s = status.get(self.id)
     if s is not None:
       message = self.status_messages[s['status']]
       os.system('purple-remote "setstatus?status=%s&message=%s (%.1f degrees celsius)"' % (s['status'], message, s['tmp']))

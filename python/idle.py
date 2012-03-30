@@ -52,6 +52,19 @@ def get_recent(sec):
     events.append(row)
   return events
 
+def get_latest(id):
+  c = db.getCon().cursor()
+  c.execute("""
+    select ts
+    from idle_event
+    where id = ?
+    order by ts desc
+    limit 1
+  """, (id,))
+
+  row = c.fetchone()
+  return row['ts'] if row else None
+
 def run(*args, **kwargs):
   thread = IdleThread(*args, **kwargs)
   thread.daemon = True

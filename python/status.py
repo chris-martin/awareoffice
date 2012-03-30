@@ -1,54 +1,82 @@
 import time
-import db
+from time import sleep
+from threading import Thread
 
-def get_statuses(id=None):
+import db, temperature, idle
 
-  query = """
-      select id, avg(tmp) as tmp from tmp_event
-      where ts > :ts
-    """
-  params = { 'ts': int((time.time() - 5) * 1000) }
-  if id is not None:
-    query += " and id = :id"
-    params['id'] = id
+def get(id=None):
 
-  query += """
-      group by id
-    """
+  if id:
+    st = _select_latest_status(id)
+    if not st: return None
+    idle_time = _select_latest_available_time(id)
+    return { 'status': st, 'idle_time': idle_time }
 
-  statuses = {}
+  return dict(map(lambda id: [id, get(id)], _select_recent_ids(15)))
 
+def _select_latest_status(id):
   c = db.getCon().cursor()
-  c.execute(query, params)
-  for row in c:
-    id = row['id']
-    tmp = row['tmp']
-    status = {
-      'id': id,
-      'tmp': tmp,
-      'status': status_for_tmp(tmp)
-    }
-    statuses[id] = status
+  c.execute("""
+    select status from status_event
+    where id = ?
+    order by ts desc limit 1
+  """, (id,))
+  row = c.fetchone()
+  return row['status'] if row else None
 
-  for id in statuses:
-    status = statuses[id]
-    query = """
-        select ts
-        from idle_event
-        where id = :id
-        order by ts desc
-        limit 1
-      """
-    c.execute(query, { 'id': status['id'] })
-    row = c.fetchone()
-    if row:
-      status['idle_time'] = int(time.time() * 1000) - row['ts']
+def _select_latest_available_time(id):
+  c = db.getCon().cursor()
+  c.execute("""
+    select ts from status_event
+    where id = ? and status = 'available'
+    order by ts desc limit 1
+  """, (id,))
+  row = c.fetchone()
+  return row['ts'] if row else None
 
-  return statuses
+def _select_recent_ids(sec):
+  c = db.getCon().cursor()
+  c.execute("""
+    select distinct id
+    from status_event
+    where ts > ?
+  """, (int((time.time() - sec) * 1000),))
+  return map(lambda row: row['id'], c)
 
-def status_for_tmp(tmp):
-  return 'away' if tmp < 22.5 else 'available'
+def _is_available(id, tmp):
+  if (idle.get_latest(id) or 0) > 1000 * (time.time() + 5): return True
+  if tmp > 22.5: return True
+  return False
 
-def get_status(id):
-  return get_statuses(id).get(id)
+def _status(*args, **kwargs):
+  return 'available' if _is_available(*args, **kwargs) else 'away'
 
+def _get(id=None):
+  tmp = temperature.get_recent_avg(5, id)
+  if id: return _status(id, tmp)
+  return dict(map(lambda id, tmp: [id, _status(id, tmp)], tmp.iteritems()))
+
+class StatusThread ( Thread ):
+
+  def __init__(self, id):
+    super(StatusThread, self).__init__()
+    self.id = id
+
+  def run(self):
+    while True:
+      self.go()
+      sleep(2)
+
+  def go(self):
+    now = int(time.time() * 1000)
+    con = db.getCon()
+    con.cursor().executemany("""
+      insert into status_event
+      values (:ts, :id, :status)
+    """, map(lambda id, status: { 'ts': now, 'id': id, 'status': status }, _get().iteritems()))
+    con.commit()
+
+def run(*args, **kwargs):
+  thread = StatusThread(*args, **kwargs)
+  thread.daemon = True
+  thread.start()

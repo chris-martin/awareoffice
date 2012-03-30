@@ -6,6 +6,7 @@ _con_attr = 'awareoffice_db_connection'
 def init():
 
   con = getCon()
+  c = con.cursor()
 
   # ts : milliseconds utc
   # id : the sensor/machine/user id name
@@ -14,13 +15,17 @@ def init():
   # tmp : temperature
   # amb : ambient temperature
 
-  con.cursor().execute('''
+  c.execute('''
     create table if not exists tmp_event (
       ts integer, id text, amb real, tmp real )''')
 
-  con.cursor().execute('''
+  c.execute('''
     create table if not exists idle_event (
       ts integer, id text )''')
+
+  c.execute('''
+    create table if not exists status_event (
+      ts integer, id text, status text )''')
 
   con.commit()
 

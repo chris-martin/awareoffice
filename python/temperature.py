@@ -62,6 +62,23 @@ def get_recent(sec):
   for row in c: events.append(row)
   return events
 
+def get_recent_avg(sec, id=None):
+  c = db.getCon().cursor()
+  c.execute("""
+    select id, avg(tmp) as tmp from tmp_event
+    where ts > :ts %s
+    group by id
+  """ % ("and id = :id" if id else ""), {
+    'ts': int((time.time() - 5) * 1000),
+    'id': id
+  })
+
+  if id:
+    row = c.fetchone()
+    return row['tmp'] if row else None
+
+  return dict(map(lambda row: [row['id'], row['tmp']], c))
+
 def run(*args, **kwargs):
   thread = TmpThread(*args, **kwargs)
   thread.daemon = True

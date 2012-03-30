@@ -18,7 +18,7 @@ def idle_json():
 
 @get('/status.json')
 def status_json():
-  return json.dumps(status.get_statuses())
+  return json.dumps(status.get())
 
 @get('/<path:path>')
 def mobile(path):

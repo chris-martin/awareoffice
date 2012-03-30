@@ -1,23 +1,26 @@
-from argparse import ArgumentParser
 import bottle
 from socket import gethostname
 
-import server, temperature, idle, purple, db
+import server, temperature, idle, status, purple, db
 from report import Report
 
-def parseArgs():
+default_port = 8080
+default_id = gethostname()
+
+def start(id=default_id, remote=None, port=default_port):
+  db.init()
+  report = Report(args.remote) if remote else None
+  temperature.run(id, report)
+  purple.run(id)
+  idle.run(id, report)
+  status.run(id)
+  bottle.run(server=bottle.PasteServer, host='0.0.0.0', port=port)
+
+if __name__ == '__main__':
+  from argparse import ArgumentParser
   parser = ArgumentParser()
-  parser.add_argument('--port', default='8080', help='the port number for this web server')
-  parser.add_argument('--id', default=gethostname(), help='a string identifying the sensor')
+  parser.add_argument('--port', default=default_port, help='the port number for this web server')
+  parser.add_argument('--id', default=default_id, help='a string identifying the sensor')
   parser.add_argument('--remote', help='the url of the central server')
-  return parser.parse_args()
-
-args = parseArgs()
-db.init()
-report = Report(args.remote) if args.remote else None
-id = args.id
-
-temperature.run(id, report)
-purple.run(id)
-idle.run(id, report)
-bottle.run(server=bottle.PasteServer, host='0.0.0.0', port=args.port)
+  args = parser.parse_args()
+  start(id = args.id, remote = args.remote, port = args.port)
