@@ -1,6 +1,5 @@
 from threading import Thread
 import time
-import sys
 
 from Phidgets.PhidgetException import PhidgetException
 from Phidgets.Devices.TemperatureSensor import TemperatureSensor
