@@ -41,11 +41,11 @@ function update() {
 
       $.each(data.tmp, function(i, event) {
         if (i != data.tmp.length - 1) return;
-        getLine(event.id)[0].append(event.ts, event.tmp / 100);
+        getLine(event.id)[0].append(event.ts, event.tmp);
         if ($.grep(data.idle, function(x) {
-          return x.id === event.id && Math.abs(x.ts - event.ts) < 0.5;
+          return x.id === event.id && Math.abs(x.ts - event.ts) < 500 ;
         }).length)
-        getLine(event.id)[1].append(event.ts, event.tmp / 100);
+          getLine(event.id)[1].append(event.ts, event.tmp);
       });
     },
     complete: function() {
