@@ -35,3 +35,8 @@ Bus 002 Device 006: ID 13fd:1340 Initio Corporation Hi-Speed USB to SATA Bridge
 Bus 002 Device 089: ID 06c2:003c Phidgets Inc. (formerly GLAB) 
 
 The "06c2:003c" pair is the vendor id followed by the model id
+
+Idle time reporting on Ubuntu 11.10
+-----------------------------------
+apt-get install libx11-dev
+
