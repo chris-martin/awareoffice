@@ -6,9 +6,11 @@ import status
 class PurpleThread ( Thread ):
 
   status_messages = {
-    'away': 'Away',
-    'available': 'Here'
+    'away': 'Away from desk',
+    'available': 'At desk'
   }
+
+  last_status = None
 
   def __init__(self, id):
     super(PurpleThread, self).__init__()
@@ -21,9 +23,9 @@ class PurpleThread ( Thread ):
 
   def go(self):
     s = status.get(self.id)
-    if s is not None:
+    if s is not None and s['status'] != self.last_status:
       message = self.status_messages[s['status']]
-      os.system('purple-remote "setstatus?status=%s&message=%s (%.1f degrees celsius)"' % (s['status'], message, s['tmp']))
+      os.system('purple-remote "setstatus?status=%s&message=%s"' % (s['status'], message))
 
 def run(*args, **kwargs):
   thread = PurpleThread(*args, **kwargs)
