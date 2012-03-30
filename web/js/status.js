@@ -8,7 +8,9 @@
       dataType: 'json',
       success: function(data) {
         var ids = $.map(data, function(x, id) { return id; });
-        ids.sort();
+        ids.sort(function(a, b) {
+          return a.toLowerCase().localeCompare(b.toLowerCase());
+        });
         statuses = $.map(ids, function(id) { return $.extend({id: id}, data[id]); });
         render();
       },
