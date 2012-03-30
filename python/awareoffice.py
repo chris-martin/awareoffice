@@ -17,12 +17,7 @@ db.init()
 report = Report(args.remote) if args.remote else None
 id = args.id
 
-try:
-  temperature.start(id, report)
-  purple.start(id)
-  idle.start(id, report)
-  bottle.run(server=bottle.PasteServer, host='0.0.0.0', port=args.port)
-
-finally:
-  purple.stop()
-  idle.stop()
+temperature.run(id, report)
+purple.run(id)
+idle.run(id, report)
+bottle.run(server=bottle.PasteServer, host='0.0.0.0', port=args.port)

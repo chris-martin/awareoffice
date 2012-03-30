@@ -19,7 +19,10 @@ class Report:
     self.data[key].append(value)
     now = _now()
     if now != self.now:
+      #try:
       urlopen(self.remote, json.dumps(self.data))
+      #except :
+      #  pass
       self.empty()
 
 # an integer that changes every 2 seconds

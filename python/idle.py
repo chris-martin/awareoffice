@@ -14,7 +14,7 @@ class IdleThread ( Thread ):
     self.report = report
 
   def run(self):
-    while not self._halt:
+    while True:
       if isActive():
         x = { 'id': self.id, 'ts': int(time.time() * 1000) }
         save_many([x])
@@ -52,14 +52,10 @@ def get_recent(sec):
     events.append(row)
   return events
 
-_thread = None
-
-def start(*args, **kwargs):
-  _thread = IdleThread(*args, **kwargs)
-  _thread.start()
-
-def stop():
-  if _thread: _thread.halt()
+def run(*args, **kwargs):
+  thread = IdleThread(*args, **kwargs)
+  thread.daemon = True
+  thread.start()
 
 # We run this script as a separate process because, for reasons unknown,
 # it gives a segmentation fault when run by a sub-thread.

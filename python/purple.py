@@ -12,11 +12,10 @@ class PurpleThread ( Thread ):
 
   def __init__(self, id):
     super(PurpleThread, self).__init__()
-    self._halt = False
     self.id = id
 
   def run(self):
-    while not self._halt:
+    while True:
       self.go()
       sleep(1)
 
@@ -26,14 +25,7 @@ class PurpleThread ( Thread ):
       message = self.status_messages[s['status']]
       os.system('purple-remote "setstatus?status=%s&message=%s (%.1f degrees celsius)"' % (s['status'], message, s['tmp']))
 
-  def halt(self):
-    self._halt = True
-
-_thread = None
-
-def start(*args, **kwargs):
-  _thread = PurpleThread(*args, **kwargs)
-  _thread.start()
-
-def stop():
-  if _thread: _thread.halt()
+def run(*args, **kwargs):
+  thread = PurpleThread(*args, **kwargs)
+  thread.daemon = True
+  thread.start()

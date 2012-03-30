@@ -1,5 +1,6 @@
 from threading import Thread
 import time
+import sys
 
 from Phidgets.PhidgetException import PhidgetException
 from Phidgets.Devices.TemperatureSensor import TemperatureSensor
@@ -25,6 +26,8 @@ class TmpThread ( Thread ):
       print 'Temperature sensor detected.'
     except PhidgetException:
       print 'No temperature sensor detected.'
+    except Exception:
+      print 'Temperature sensor detection failed. Is the Phidgets library not installed?'
 
   def onChange(self, e):
     x = {
@@ -60,8 +63,7 @@ def get_recent(sec):
   for row in c: events.append(row)
   return events
 
-_thread = None
-
-def start(*args, **kwargs):
-  _thread = TmpThread(*args, **kwargs)
-  _thread.start()
+def run(*args, **kwargs):
+  thread = TmpThread(*args, **kwargs)
+  thread.daemon = True
+  thread.start()
