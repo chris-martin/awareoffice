@@ -32,7 +32,7 @@
   }
 
   function sensorName(sensor) {
-    return sensor;
+    return sensor.replace('_', ' ');
   }
 
   function statusIconUrl(status) {
