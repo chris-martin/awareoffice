@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="4680.8857"
+   height="3195.1716"
+   id="svg5906"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="arch-sensor.svg">
+  <defs
+     id="defs5908">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective5914" />
+    <inkscape:perspective
+       id="perspective5805"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Lend"
+       style="overflow:visible">
+      <path
+         id="path4054"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5811"
+       style="overflow:visible">
+      <path
+         id="path5813"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5815"
+       style="overflow:visible">
+      <path
+         id="path5817"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5819"
+       style="overflow:visible">
+      <path
+         id="path5821"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5823"
+       style="overflow:visible">
+      <path
+         id="path5825"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker5827"
+       style="overflow:visible">
+      <path
+         id="path5829"
+         style="font-size:12px;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-1.1,0,0,-1.1,-1.1,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.0875"
+     inkscape:cx="1403.3284"
+     inkscape:cy="1685.4482"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1150"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     borderlayer="true" />
+  <metadata
+     id="metadata5911">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1900.4428,1236.6521)">
+    <g
+       id="g5113"
+       transform="translate(-1.8471874,801.03568)"
+       inkscape:label="#sensorinput">
+      <rect
+         y="-1550.3267"
+         x="-1243.1791"
+         height="2482.7849"
+         width="3485.4761"
+         id="rect3819"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.5999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         y="-213.35211"
+         x="-1166.2699"
+         height="1068.5714"
+         width="3320.3081"
+         id="rect2930"
+         style="fill:none;stroke:#8c8c8c;stroke-width:6.5999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <g
+         transform="translate(-60,-976)"
+         id="g3627">
+        <g
+           id="g3795">
+          <rect
+             y="-171.12344"
+             x="-892.70374"
+             height="693.05676"
+             width="608.26459"
+             id="rect3609"
+             style="fill:#e7dbaa;fill-opacity:1;fill-rule:evenodd;stroke:#4f4f4f;stroke-width:10.30207157;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <text
+             id="text3613"
+             y="259.62283"
+             x="-592.06372"
+             style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+             xml:space="preserve"><tspan
+               id="tspan3617"
+               y="259.62283"
+               x="-592.06372"
+               sodipodi:role="line">Infrared</tspan><tspan
+               id="tspan3804"
+               y="350.96716"
+               x="-592.06372"
+               sodipodi:role="line">Temperature</tspan><tspan
+               id="tspan3625"
+               y="442.31146"
+               x="-592.06372"
+               sodipodi:role="line">Sensor</tspan></text>
+          <g
+             id="g3791"
+             transform="matrix(1.4742851,0,0,0.93743417,279.15068,-64.388497)">
+            <path
+               sodipodi:type="arc"
+               style="fill:#f6f1de;fill-opacity:1;fill-rule:evenodd;stroke:#a2a2a2;stroke-width:31.74200058;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+               id="path3611"
+               sodipodi:cx="-602.85712"
+               sodipodi:cy="63.790752"
+               sodipodi:rx="114.28571"
+               sodipodi:ry="114.28571"
+               d="m -488.5714,63.790752 c 0,63.118258 -51.16746,114.285718 -114.28572,114.285718 -63.11825,0 -114.28571,-51.16746 -114.28571,-114.285718 0,-63.11825611 51.16746,-114.285713 114.28571,-114.285713 63.11826,0 114.28572,51.16745689 114.28572,114.285713 z"
+               transform="matrix(0.69267817,0,0,0.69267817,-168.1283,56.747148)" />
+            <path
+               transform="matrix(0.24253737,0,0,0.24253737,-439.49889,85.461969)"
+               d="m -488.5714,63.790752 c 0,63.118258 -51.16746,114.285718 -114.28572,114.285718 -63.11825,0 -114.28571,-51.16746 -114.28571,-114.285718 0,-63.11825611 51.16746,-114.285713 114.28571,-114.285713 63.11826,0 114.28572,51.16745689 114.28572,114.285713 z"
+               sodipodi:ry="114.28571"
+               sodipodi:rx="114.28571"
+               sodipodi:cy="63.790752"
+               sodipodi:cx="-602.85712"
+               id="path3789"
+               style="fill:#a2a2a2;fill-opacity:1;fill-rule:evenodd;stroke:none"
+               sodipodi:type="arc" />
+          </g>
+        </g>
+      </g>
+      <g
+         transform="translate(-136.73676,850.699)"
+         id="g3832">
+        <rect
+           y="-912.24188"
+           x="-939.83661"
+           height="571.46094"
+           width="792.74896"
+           id="rect3609-3"
+           style="fill:#e7dbaa;fill-opacity:1;fill-rule:evenodd;stroke:#4f4f4f;stroke-width:10.67960072;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           id="text3613-0"
+           y="-490.04834"
+           x="-548.19678"
+           style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             id="tspan3625-4"
+             y="-490.04834"
+             x="-548.19678"
+             sodipodi:role="line">Keyboard,</tspan><tspan
+             y="-398.70401"
+             x="-548.19678"
+             sodipodi:role="line"
+             id="tspan3765">Mouse</tspan></text>
+        <g
+           id="g3716">
+          <path
+             sodipodi:nodetypes="cc"
+             id="path3706"
+             d="m -685,-768.35211 c -23.98122,-45.71448 23.2611,-57.68134 0,-101.42857"
+             style="fill:none;stroke:#87857f;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.80000072;stroke-dasharray:none" />
+          <rect
+             y="-776.28235"
+             x="-877.95251"
+             height="148.72255"
+             width="399.24039"
+             id="rect3634"
+             style="fill:#f6f1de;fill-opacity:1;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:5.08099985;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        </g>
+        <g
+           id="g3710"
+           transform="translate(8.5714286,-105.71429)">
+          <path
+             style="fill:none;stroke:#87857f;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.80000072;stroke-dasharray:none"
+             d="m -343.04849,-674.75965 c -23.98122,-45.71448 23.2611,-57.68134 0,-101.42857"
+             id="path3708"
+             sodipodi:nodetypes="cc" />
+          <path
+             sodipodi:nodetypes="ccccccc"
+             id="rect3636"
+             d="m -373.75644,-705.30322 52.52794,0 c 21.26573,0 38.3858,17.12006 38.3858,38.38579 l 0,149.50258 -129.29953,0 0,-149.50258 c 0,-21.26573 17.12006,-38.38579 38.38579,-38.38579 z"
+             style="fill:#f6f1de;fill-opacity:1;fill-rule:evenodd;stroke:#7e7e7e;stroke-width:7.44199991;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1" />
+          <path
+             id="path3639"
+             d="m -408.42284,-637.11795 121.87158,0"
+             style="fill:none;stroke:#555555;stroke-width:0.98962581px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <path
+             style="fill:none;stroke:#555555;stroke-width:1.352;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             d="m -347.99754,-701.57283 0,64.20592"
+             id="path3641" />
+        </g>
+      </g>
+      <g
+         transform="translate(-575.37064,324.68007)"
+         id="g3907">
+        <rect
+           y="-390.84222"
+           x="648.66333"
+           height="228.1666"
+           width="702.1712"
+           id="rect3609-3-7"
+           style="fill:#e3e3e3;fill-opacity:1;fill-rule:evenodd;stroke:#777777;stroke-width:8.40299988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+        <text
+           xml:space="preserve"
+           style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           x="1004.1365"
+           y="-247.45372"
+           id="text3613-0-0"><tspan
+             id="tspan3765-5"
+             sodipodi:role="line"
+             x="1004.1365"
+             y="-247.45372">XScreenSaver</tspan></text>
+      </g>
+      <g
+         id="g3912"
+         transform="translate(691.249,320.63946)">
+        <g
+           transform="translate(-286.88332,32.324881)"
+           id="g3920">
+          <rect
+             y="-390.52301"
+             x="724.8913"
+             height="227.52818"
+             width="374.24335"
+             id="rect3914"
+             style="fill:#dcfade;fill-opacity:1;fill-rule:evenodd;stroke:#116d18;stroke-width:9.04141808;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+          <text
+             xml:space="preserve"
+             style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+             x="914.38"
+             y="-251.49432"
+             id="text3916"><tspan
+               id="tspan3918"
+               sodipodi:role="line"
+               x="914.38"
+               y="-251.49432">idle.py</tspan></text>
+        </g>
+      </g>
+      <g
+         id="g3925"
+         transform="translate(465.20577,-661.8944)">
+        <rect
+           style="fill:#dcfade;fill-opacity:1;fill-rule:evenodd;stroke:#116d18;stroke-width:9.04141808;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3927"
+           width="705.57336"
+           height="227.52818"
+           x="559.22626"
+           y="-390.52301" />
+        <text
+           id="text3929"
+           y="-251.49432"
+           x="914.38"
+           style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             y="-251.49432"
+             x="914.38"
+             sodipodi:role="line"
+             id="tspan3931">temperature.py</tspan></text>
+      </g>
+      <g
+         id="g3925-4"
+         transform="translate(-570.16507,-678.0568)">
+        <rect
+           style="fill:#e3e3e3;fill-opacity:1;fill-rule:evenodd;stroke:#777777;stroke-width:9.04141808;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="rect3927-9"
+           width="705.57336"
+           height="227.52818"
+           x="559.22626"
+           y="-390.52301" />
+        <text
+           id="text3929-4"
+           y="-251.49432"
+           x="914.38"
+           style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           xml:space="preserve"><tspan
+             y="-251.49432"
+             x="914.38"
+             sodipodi:role="line"
+             id="tspan3931-2">PhidgetsPython</tspan></text>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="423.83429"
+         y="308.67303"
+         id="text3613-0-0-5"><tspan
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           id="tspan4020"
+           sodipodi:role="line"
+           x="423.83429"
+           y="308.67303">Monitors activity and</tspan><tspan
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           id="tspan4024"
+           sodipodi:role="line"
+           x="423.83429"
+           y="400.01736">reports duration of</tspan><tspan
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           id="tspan4026"
+           sodipodi:role="line"
+           x="423.83429"
+           y="491.36166">recent idle time</tspan></text>
+      <path
+         id="path4028"
+         d="m -234.78447,39.60028 237.849211,0"
+         style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)" />
+      <path
+         style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+         d="m -274.15233,-954.8157 194.606817,0"
+         id="path4666" />
+      <text
+         xml:space="preserve"
+         style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="328.99451"
+         y="-715.87158"
+         id="text3613-0-0-5-9"><tspan
+           id="tspan4722"
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           sodipodi:role="line"
+           x="328.99451"
+           y="-715.87158">Python library for</tspan><tspan
+           id="tspan4716"
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           sodipodi:role="line"
+           x="328.99451"
+           y="-624.52728">reading data from</tspan><tspan
+           id="tspan4726"
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           sodipodi:role="line"
+           x="328.99451"
+           y="-533.18292">the sensor</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="1334.9746"
+         y="327.03174"
+         id="text3613-0-0-5-2"><tspan
+           id="tspan4764"
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           sodipodi:role="line"
+           x="1334.9746"
+           y="327.03174">Polls idle time using</tspan><tspan
+           id="tspan4800"
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           sodipodi:role="line"
+           x="1334.9746"
+           y="418.37607">X11 shared libraries</tspan></text>
+      <path
+         style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+         d="m 820.205,59.80333 205.4367,0"
+         id="path4770" />
+      <text
+         id="text4804"
+         y="-695.66852"
+         x="1383.8375"
+         style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="-695.66852"
+           x="1383.8375"
+           sodipodi:role="line"
+           style="font-family:Serif;-inkscape-font-specification:Serif"
+           id="tspan4808">Receives temperature</tspan><tspan
+           id="tspan4812"
+           y="-604.32422"
+           x="1383.8375"
+           sodipodi:role="line"
+           style="font-family:Serif;-inkscape-font-specification:Serif">change events from</tspan><tspan
+           id="tspan4814"
+           y="-512.97986"
+           x="1383.8375"
+           sodipodi:role="line"
+           style="font-family:Serif;-inkscape-font-specification:Serif">the sensor API</tspan></text>
+      <path
+         id="path4816"
+         d="m 769.6145,-946.7345 205.4367,0"
+         style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)" />
+      <text
+         xml:space="preserve"
+         style="font-size:120.79695892px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="-1063.0535"
+         y="780.74207"
+         id="text3613-0-0-5-5"><tspan
+           style="font-size:119.01918793px;text-align:start;text-anchor:start;font-family:Serif;-inkscape-font-specification:Serif"
+           id="tspan4026-1"
+           sodipodi:role="line"
+           x="-1063.0535"
+           y="780.74207">Standard workstation presence detection</tspan></text>
+      <rect
+         style="fill:none;stroke:#8c8c8c;stroke-width:6.5999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect3762"
+         width="3320.3081"
+         height="1068.5714"
+         x="-1166.2699"
+         y="-1453.3521" />
+      <text
+         id="text3815"
+         y="-1265.3798"
+         x="-1030.6068"
+         style="font-size:120.79695892px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           y="-1265.3798"
+           x="-1030.6068"
+           sodipodi:role="line"
+           id="tspan3817"
+           style="font-size:119.01918793px;text-align:start;text-anchor:start;font-family:Serif;-inkscape-font-specification:Serif">Temperature-based presence detection</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:210.61656189px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         x="-1244.778"
+         y="-1661.9459"
+         id="text3821"><tspan
+           style="font-size:207.516922px;text-align:start;text-anchor:start;font-family:Serif;-inkscape-font-specification:Serif"
+           id="tspan3823"
+           sodipodi:role="line"
+           x="-1244.778"
+           y="-1661.9459">Sensor Input</tspan></text>
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)"
+         d="m 1774.6096,-946.7345 c 262.5758,102.12405 264.4985,280.91076 275.1069,457.14286"
+         id="path3871" />
+      <path
+         sodipodi:nodetypes="cc"
+         id="path3873"
+         d="m 1592.7822,100.99133 c 254.8869,-24.984839 373.5174,-120.49126 446.6252,-239.55856"
+         style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)" />
+      <g
+         transform="translate(474.28571,2571.4286)"
+         id="g4175">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.59999895;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect4148"
+           width="616.25714"
+           height="267.68567"
+           x="1419.1877"
+           y="-3022.1189" />
+        <text
+           xml:space="preserve"
+           style="font-size:71.42523193px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+           x="1720.3822"
+           y="-2865.1011"
+           id="text3890-0"><tspan
+             style="font-size:70.37406158px;text-align:center;text-anchor:middle;font-family:Serif;-inkscape-font-specification:Serif"
+             id="tspan3892-1"
+             sodipodi:role="line"
+             x="1720.3822"
+             y="-2865.1011">Persistence</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>
