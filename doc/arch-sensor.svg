@@ -9,8 +9,8 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="4680.8857"
-   height="3195.1716"
+   width="3750.3799"
+   height="2741.48"
    id="svg5906"
    version="1.1"
    inkscape:version="0.47 r22583"
@@ -117,18 +117,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.0875"
-     inkscape:cx="1403.3284"
-     inkscape:cy="1685.4482"
+     inkscape:zoom="0.12374369"
+     inkscape:cx="1920.2006"
+     inkscape:cy="1375.9537"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g5113"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1150"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     borderlayer="true" />
+     borderlayer="true"
+     inkscape:showpageshadow="false" />
   <metadata
      id="metadata5911">
     <rdf:RDF>
@@ -145,18 +146,11 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1900.4428,1236.6521)">
+     transform="translate(1229.197,1081.9266)">
     <g
        id="g5113"
-       transform="translate(-1.8471874,801.03568)"
+       transform="translate(16.152813,783.03568)"
        inkscape:label="#sensorinput">
-      <rect
-         y="-1550.3267"
-         x="-1243.1791"
-         height="2482.7849"
-         width="3485.4761"
-         id="rect3819"
-         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.5999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
       <rect
          y="-213.35211"
          x="-1166.2699"
@@ -516,7 +510,7 @@
          d="m 1592.7822,100.99133 c 254.8869,-24.984839 373.5174,-120.49126 446.6252,-239.55856"
          style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;marker-end:url(#Arrow2Lend)" />
       <g
-         transform="translate(474.28571,2571.4286)"
+         transform="translate(432.28571,2571.4286)"
          id="g4175">
         <rect
            style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.59999895;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"

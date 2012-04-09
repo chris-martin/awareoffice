@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="4326.6006"
-   height="4086.6001"
+   width="3797.1001"
+   height="3781.9299"
    id="svg6285"
    version="1.1"
    inkscape:version="0.47 r22583"
@@ -183,9 +183,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.0875"
-     inkscape:cx="2647.0848"
-     inkscape:cy="1954.2495"
+     inkscape:zoom="0.12374369"
+     inkscape:cx="2625.8655"
+     inkscape:cy="1762.2977"
      inkscape:document-units="px"
      inkscape:current-layer="g5189"
      showgrid="false"
@@ -195,7 +195,8 @@
      inkscape:window-y="131"
      inkscape:window-maximized="0"
      showborder="true"
-     borderlayer="true" />
+     borderlayer="true"
+     inkscape:showpageshadow="false" />
   <metadata
      id="metadata6290">
     <rdf:RDF>
@@ -212,34 +213,27 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1843.3,1533.795)">
+     transform="translate(1491.0502,1388.2659)">
     <g
        id="g5189"
-       transform="translate(-4746.9498,487.66061)"
+       transform="translate(-4714.9498,457.66061)"
        inkscape:label="#persistence">
       <text
          id="text4104"
-         y="207.58293"
-         x="4895.6616"
+         y="247.58293"
+         x="4821.376"
          style="font-size:73.07545471px;font-style:normal;font-weight:normal;text-align:start;text-anchor:start;opacity:0.8;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
          xml:space="preserve"><tspan
-           y="207.58293"
-           x="4895.6616"
+           y="247.58293"
+           x="4821.376"
            sodipodi:role="line"
            style="text-align:start;text-anchor:start;font-family:Serif;-inkscape-font-specification:Serif"
            id="tspan4106">HTTP</tspan><tspan
-           y="298.92725"
-           x="4895.6616"
+           y="338.92725"
+           x="4821.376"
            sodipodi:role="line"
            style="text-align:start;text-anchor:start;font-family:Serif;-inkscape-font-specification:Serif"
            id="tspan4108">post</tspan></text>
-      <rect
-         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.59999943;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-         id="rect3888"
-         width="3064.8464"
-         height="3463.0779"
-         x="3584.9021"
-         y="-1560.3687" />
       <g
          transform="translate(2063.5857,-122.9864)"
          id="g4888">
