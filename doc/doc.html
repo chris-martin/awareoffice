@@ -1,34 +1,54 @@
 <style>
-p {
+.awareoffice {
+  font-family: serif;
+}
+.awareoffice p,
+.awareoffice td,
+.awareoffice li,
+.awareoffice div {
+  font-size: 17px;
+}
+.awareoffice p {
   width: 600px;
   table.mail
 }
-h2 {
-  width: 650px;
+.awareoffice table p {
+  width: 100%;
 }
-p, h2, table.mail, table.arch {
+.awareoffice h2 {
+  width: 650px;
+  border: 4px solid #ddd;
+  border-width: 0 0 2px 0;
+}
+.awareoffice p, 
+.awareoffice h2, 
+.awareoffice table.mail, 
+.awareoffice table.arch {
   text-align: justify;
   margin-left: auto;
   margin-right: auto;
 }
-table.mail {
+.awareoffice table.mail {
   width: 600px;
 }
-table.mail td {
+.awareoffice table.mail td {
   padding: 0.5em;
 }
-table.arch {
+.awareoffice table.arch {
   width: 800px;
 }
-table.arch td {
+.awareoffice table.arch td {
   vertical-align: top;
+  padding-bottom: 2.5em;
 }
-table.arch td.text {
-  padding-top: 4em;
-  width: 35%;
+.awareoffice table.arch td.text {
+  width: 42%;
   text-align: justify;
+  padding-top: 2.5em;
 }
 </style>
+
+<div class="awareoffice">
 
 <h1 style="text-align: center;">Aware Office</h1>
 <h4 style="font-weight: normal; text-align: center;"><em>Make your presence known.</em></h4>
@@ -70,14 +90,16 @@ table.arch td.text {
     --target market and pricing
     --competitive solutions - how you compare to the alternatives, these are not always current products but could also just be the        current way that people solve this problem
 
-<h2>Architecture</h2>
+<h2>Prototype Architecture</h2>
 
 <table class="arch">
 <tr>
 <td class="text">
-
+<p>The unique component of Aware Office is the method of human detection. Our prototype uses a small infrared temperature sensor produced by Phidgets Inc. which can be purchased in bulk for $75 per sensor. The device has a USB interface and is accessed via a Python library provided by Phidgets.</p>
+<p>To protected against reporting a false "away" status, we also combine the sensor data with keyboard and mouse activity. Our prototype machines run Linux with the Gnome desktop.</p>
+<p>The collected data is represented as a sequence of timestamped events which get sent to the persistence layer.</p>
 </td>
-<td>
+<td style="padding-left: 2em;" class="img">
 <a href="http://cic.gatech.edu/drupal/sites/default/files/arch-sensor.png"><img src="http://cic.gatech.edu/drupal/sites/default/files/arch-sensor.png" alt="Sensors" style="width: 100%;"/></a>
 </td>
 </tr>
@@ -85,11 +107,13 @@ table.arch td.text {
 
 <table class="arch">
 <tr>
-<td>
+<td style="padding-right: 2em;" class="img">
 <a href="http://cic.gatech.edu/drupal/sites/default/files/arch-persistence.png"><img src="http://cic.gatech.edu/drupal/sites/default/files/arch-persistence.png" alt="Communication and Persistence" style="width: 100%;"/></a>
 </td>
 <td class="text">
-Text about communication and persistence
+<p>The client collects events in a database so this information can be retrieved by the services which perform chat status updates and screen locking. We chose SQLite for prototype development, with the intent of dropping in a different DBMS later for a real deployment.</p>
+<p>The Aware Office client can run by itself, but is more powerful when paired with a central server. The client reports events to the server, where they are copied into another database. The server aggregates the data it receives and runs a web application to display the current status of every client. All of this traffic is JSON over HTTP.</p>
+<p>When the client subscribes to events for a particular user name, information also flows from server to client in the same manner. This allows us to link together multiple workstations under a single identity.</p>
 </td>
 </tr>
 </table>
@@ -97,19 +121,13 @@ Text about communication and persistence
 <table class="arch">
 <tr>
 <td class="text">
-Text about effects
+A client machine uses the event data it has collected (either directly from sensors or via the central server) to appropriately manipulate a local chat client and screensaver. As these interactions are software and platform dependent, multiple implementations will be required. In our prototype, both actions are performed using D-Bus, the standard mechanism for interprocess communication on our Linux platform.
 </td>
-<td>
+<td style="padding-left: 2em;" class="img">
 <a href="http://cic.gatech.edu/drupal/sites/default/files/arch-effects.png"><img src="http://cic.gatech.edu/drupal/sites/default/files/arch-effects.png" alt="Automated Effects" style="width: 100%;"/></a>
 </td>
 </tr>
 </table>
-
-<h2>Prototype</h2>
-
-...
---how much of this were you able to include in your prototype
---describe an end-to-end working protoype, which parts were implemented and which parts were stubbed out/wizard of oz
 
 <h2>Next Steps</h2>
 
@@ -119,4 +137,6 @@ Text about effects
 * security
 * RFID for more precise location
 * maps/floor plan
+
+</div>
 
