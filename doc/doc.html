@@ -1,4 +1,10 @@
 <style>
+.awareoffice td,
+.awareoffice p,
+.node .content .awareoffice td,
+.node .content .awareoffice p {
+  padding: 0;
+}
 .awareoffice {
   font-family: serif;
 }
@@ -7,10 +13,6 @@
 .awareoffice li,
 .awareoffice div {
   font-size: 17px;
-}
-.awareoffice p {
-  width: 600px;
-  table.mail
 }
 .awareoffice table p {
   width: 100%;
@@ -23,12 +25,15 @@
 .awareoffice p, 
 .awareoffice h2, 
 .awareoffice table.mail, 
-.awareoffice table.arch {
+.awareoffice table.arch,
+.awareoffice table.buddies {
   text-align: justify;
   margin-left: auto;
   margin-right: auto;
 }
-.awareoffice table.mail {
+.awareoffice p,
+.awareoffice table.mail,
+.awareoffice table.buddies {
   width: 600px;
 }
 .awareoffice table.mail td {
@@ -37,7 +42,8 @@
 .awareoffice table.arch {
   width: 800px;
 }
-.awareoffice table.arch td {
+.awareoffice table.arch td,
+.awareoffice table.buddies td {
   vertical-align: top;
   padding-bottom: 2.5em;
 }
@@ -55,7 +61,7 @@
 
 <h2>The Team</h2>
 
-<table class="mail">
+<table class="mail" cellspacing="0">
 <tr><td>Kelsey Francis</td><td>francis@gatech.edu</td></tr>
 <tr><td>Christopher Martin</td><td>chris.martin@gatech.edu</td></tr>
 <tr><td>David Poore</td><td>dpoore3@gatech.edu</td></tr>
@@ -75,7 +81,16 @@
 
 <p>When Alice is working at her desk but not actively using her workstation, she used to be annoyed that both of her computers would automatically lock after a few minutes in accordance with the company's security policy. Now that Aware Office is in charge of detection, her mere presence at the desk is sufficient to keep the machine unlocked.</p>
 
-<p>Alice and Bob need to confer often with their coworkers, so they leave their desks frequently. Accurate presence detection means they won't waste their time walking to each others' offices to find that no one is there.</p>
+<table class="buddies" cellspacing="0">
+<tr>
+<td style="padding-right: 2em;">
+<p>Coworkers who often need to confer with each other leave their desks frequently. Accurate presence detection means they won't waste their time walking to each others' offices to find that no one is there. At the right is an example of our simple web application that reports on personnel availability. They may also choose to utilize Aware Office's integration with the presence services of their chat clients.</p>
+</td>
+<td>
+<img src="http://cic.gatech.edu/drupal/sites/default/files/screenshot-buddylist.png" alt="Screenshot of status list" width="300" height="250"/>
+</td>
+</tr>
+</table>
 
 <h2>Use Case: Office Hours</h2>
 
@@ -85,13 +100,13 @@
 
 <h2>Business Viability</h2>
 
-<p>Aware Office boosts productivity in medium-to-large organizations by facilitating collaboration among colleagues. Aware Office also promotes security. A few commercial office-oriented human detection solutions exist, but desktop sensors have not yet seen wide adoption. Currently, both screen locking and presence reporting are done manually or by timeouts. This strategy has proven mostly sufficient </p>
+<p>Aware Office boosts productivity in medium-to-large organizations by facilitating collaboration among colleagues. Aware Office also promotes security. A few commercial office-oriented human detection solutions exist, but desktop sensors have not yet seen wide adoption. Currently, both screen locking and presence reporting are done manually or by timeouts.</p>
 
 <p>We estimate that hardware and software for an office-wide Aware Office installation might be sold for $200 per workstation. The key to making this product marketable will be providing full integration with the platforms and software that businesses are already utilizing, and we have found no existing products that offer well-integrated solutions.</p>
 
 <h2>Prototype Architecture</h2>
 
-<table class="arch">
+<table class="arch" cellspacing="0">
 <tr>
 <td class="text">
 <p>The unique component of Aware Office is the method of human detection. Our prototype uses a small infrared temperature sensor produced by Phidgets Inc. which can be purchased in bulk for $75 per sensor. The device has a USB interface and is accessed via a Python library provided by Phidgets.</p>
@@ -104,7 +119,7 @@
 </tr>
 </table>
 
-<table class="arch">
+<table class="arch" cellspacing="0">
 <tr>
 <td style="padding-right: 2em;" class="img">
 <a href="http://cic.gatech.edu/drupal/sites/default/files/arch-persistence.png"><img src="http://cic.gatech.edu/drupal/sites/default/files/arch-persistence.png" alt="Communication and Persistence" style="width: 100%;"/></a>
@@ -117,7 +132,7 @@
 </tr>
 </table>
 
-<table class="arch">
+<table class="arch" cellspacing="0">
 <tr>
 <td class="text">
 A client machine uses the event data it has collected (either directly from sensors or via the central server) to appropriately manipulate a local chat client and screensaver. As these interactions are software and platform dependent, multiple implementations will be required. In our prototype, both actions are performed using D-Bus, the standard mechanism for interprocess communication on our Linux platform.
