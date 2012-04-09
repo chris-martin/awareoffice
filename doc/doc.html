@@ -85,7 +85,7 @@
 
 <h2>Business Viability</h2>
 
-<p>Aware Office boosts productivity in sizeable organizations by facilitating collaboration among colleagues. Aware Office also promotes security. A few commercial office-oriented human detection solutions exist, but desktop sensors have not yet seen wide adoption. Currently, both screen locking and presence reporting are done manually or by timeouts. This strategy has proven mostly sufficient </p>
+<p>Aware Office boosts productivity in medium-to-large organizations by facilitating collaboration among colleagues. Aware Office also promotes security. A few commercial office-oriented human detection solutions exist, but desktop sensors have not yet seen wide adoption. Currently, both screen locking and presence reporting are done manually or by timeouts. This strategy has proven mostly sufficient </p>
 
 <p>We estimate that hardware and software for an office-wide Aware Office installation might be sold for $200 per workstation. The key to making this product marketable will be providing full integration with the platforms and software that businesses are already utilizing, and we have found no existing products that offer well-integrated solutions.</p>
 
@@ -130,13 +130,15 @@ A client machine uses the event data it has collected (either directly from sens
 
 <h2>Next Steps</h2>
 
-...
---what are the next steps for this project
+<p>To turn this prototype into a real product, we will need to add support for additional operating systems and software beyond Linux and Gnome.</p>
 
-* security
-* RFID for more precise location
-* maps/floor plan
+<p>We dedicated no effort to security in this prototype because it would not have been helpful in demonstrating the concept, but a security-conscious organization would require more stringent access controls.</p>
+
+<p>The hardware we chose does work fairly well, but it would be wise to test additional options before proceeding further. Other possibilities discussed were radar or chair pressure measurement. We will also need a nicer way to package and install the sensors. Our sensor-mounting mechanism consists of a bent strip of metal (flexible to angle allow adjustment) attached to the ceiling with a magnet. This has sufficed, but lacks elegance - particularly because it requires a cable from the sensor to a computer. When cheap single-board computers like Raspberry Pi become more readily available, we anticipate that they will be helpful if they can be hidden away in a dropped ceiling and powered over ethernet.</p>
+
+<p>Integration with RFID systems was an obvious choice, but outside the budget of the initial phase of this project. Many organizations within our target market already have RFID scanner installations for secure facility access, and we believe that the information from these systems and Aware Office could be combined complementarily.</p>
+
+<p>We would also like to add a snazzier interface for the data. An organizatation that installs many sensors in a building may want to set up a graphic of the floor layout to view a heat map of human presence. We could also show individuals their activity history to help forgetful employees fill out the day's timesheet.</p>
 
 </div>
-
 
