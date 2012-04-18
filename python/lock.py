@@ -11,6 +11,7 @@ import status
 class LockThread ( Thread ):
 
   last_status = None
+  count = 0
 
   def __init__(self, id):
     super(LockThread, self).__init__()
@@ -23,19 +24,17 @@ class LockThread ( Thread ):
 
   def go(self):
     s = status.get(self.id)
-    if s is 'away':
-      lock()
+    self.count = self.count + 1 if s['status'] == 'away' else 0
+    lock(self.count > 2)
 
 # http://wiki.python.org/moin/DbusExamples
-def lock():
+def lock(x):
   gobject.threads_init()
   glib.init_threads()
   bus = dbus.SessionBus()
-  remote_object = bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus')
-  iface = dbus.Interface(remote_object, 'org.freedesktop.DBus')
   screensaver = bus.get_object('org.gnome.ScreenSaver', '/org/gnome/ScreenSaver')
   iface = dbus.Interface(screensaver, 'org.gnome.ScreenSaver')
-  iface.Lock()
+  iface.SetActive(x)
 
 def run(*args, **kwargs):
   thread = LockThread(*args, **kwargs)
