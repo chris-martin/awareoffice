@@ -379,11 +379,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="1184.3022"
-     inkscape:cy="930.58889"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="1264.554"
+     inkscape:cy="957.11097"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer1"
      showgrid="false"
      borderlayer="true"
      inkscape:showpageshadow="false"
@@ -403,7 +403,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -412,7 +412,7 @@
      id="layer2"
      inkscape:label="background"
      style="display:inline"
-     transform="translate(0,0.00933594)">
+     transform="translate(0,0.01933594)">
     <image
        y="-3.9062499e-05"
        x="1.6015625e-05"
@@ -425,7 +425,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1538.8611,1038.0093)">
+     transform="translate(1538.8611,1038.0193)">
     <g
        transform="matrix(0.21121468,0,0,0.21121468,788.63548,-981.78553)"
        id="layer1-6"
@@ -697,7 +697,7 @@
            height="288.57141"
            x="142.85715"
            y="529.53137" /></flowRegion><flowPara
-         style="font-size:36px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:36px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara4266">Using person-detecting sensors to enhance presence services</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4248"
@@ -733,9 +733,9 @@
            height="288.57141"
            width="582.85724"
            id="rect4284"
-           style="-inkscape-font-specification:Serif;font-family:Serif" /></flowRegion><flowPara
+           style="font-family:Serif;-inkscape-font-specification:Serif" /></flowRegion><flowPara
          id="flowPara4286"
-         style="font-size:36px;-inkscape-font-specification:Serif;font-family:Serif">Install Aware Office sensor at each employee workstation</flowPara></flowRoot>    <flowRoot
+         style="font-size:36px;font-family:Serif;-inkscape-font-specification:Serif">Install Aware Office sensor at each employee workstation</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4288"
        style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
@@ -746,9 +746,9 @@
            height="288.57141"
            x="142.85715"
            y="529.53137"
-           style="-inkscape-font-specification:Serif;font-family:Serif" /></flowRegion><flowPara
-         style="font-size:36px;-inkscape-font-specification:Serif;font-family:Serif"
-         id="flowPara4294">Automatically update Jabber status and lock screens</flowPara></flowRoot>    <flowRoot
+           style="font-family:Serif;-inkscape-font-specification:Serif" /></flowRegion><flowPara
+         style="font-size:36px;font-family:Serif;-inkscape-font-specification:Serif"
+         id="flowPara4294">Automatically update IM status and lock screens</flowPara></flowRoot>    <flowRoot
        transform="translate(-1538.8611,-718.0006)"
        style="font-size:54px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#003468;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
        id="flowRoot4296"
@@ -771,9 +771,9 @@
            height="288.57141"
            width="582.85724"
            id="rect4308"
-           style="-inkscape-font-specification:Serif;font-family:Serif" /></flowRegion><flowPara
+           style="font-family:Serif;-inkscape-font-specification:Serif" /></flowRegion><flowPara
          id="flowPara4310"
-         style="font-size:36px;-inkscape-font-specification:Serif;font-family:Serif">Keep screens from being locked when sitting at desk but not actively using workstation</flowPara></flowRoot>    <flowRoot
+         style="font-size:36px;font-family:Serif;-inkscape-font-specification:Serif">Keep screens from being locked when sitting at desk but not actively using workstation</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4312"
        style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
@@ -784,8 +784,8 @@
            height="288.57141"
            x="142.85715"
            y="529.53137"
-           style="-inkscape-font-specification:Serif;font-family:Serif" /></flowRegion><flowPara
-         style="font-size:36px;-inkscape-font-specification:Serif;font-family:Serif"
+           style="font-family:Serif;-inkscape-font-specification:Serif" /></flowRegion><flowPara
+         style="font-size:36px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara4318">Coworkers don't waste time walking to each others' offices to find that no one is there</flowPara></flowRoot>    <image
        y="233.5784"
        x="-1274.5754"
@@ -856,7 +856,7 @@
            id="rect4623"
            style="font-family:Serif;-inkscape-font-specification:Serif" /></flowRegion><flowPara
          id="flowPara4625"
-         style="font-size:36px;font-family:Serif;-inkscape-font-specification:Serif">Priced around $200 per seat</flowPara></flowRoot>    <flowRoot
+         style="font-size:36px;font-family:Serif;-inkscape-font-specification:Serif">Price around $200 per seat</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot4627"
        style="font-size:54px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#003468;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
@@ -980,7 +980,7 @@
                id="g3791">
               <path
                  transform="matrix(0.69267817,0,0,0.69267817,-168.1283,56.747148)"
-                 d="m -488.5714,63.790752 c 0,63.118258 -51.16746,114.285718 -114.28572,114.285718 -63.11825,0 -114.28571,-51.16746 -114.28571,-114.285718 0,-63.11825611 51.16746,-114.285713 114.28571,-114.285713 63.11826,0 114.28572,51.16745689 114.28572,114.285713 z"
+                 d="m -488.5714,63.790752 a 114.28571,114.28571 0 1 1 -228.57143,0 114.28571,114.28571 0 1 1 228.57143,0 z"
                  sodipodi:ry="114.28571"
                  sodipodi:rx="114.28571"
                  sodipodi:cy="63.790752"
@@ -996,7 +996,7 @@
                  sodipodi:cy="63.790752"
                  sodipodi:rx="114.28571"
                  sodipodi:ry="114.28571"
-                 d="m -488.5714,63.790752 c 0,63.118258 -51.16746,114.285718 -114.28572,114.285718 -63.11825,0 -114.28571,-51.16746 -114.28571,-114.285718 0,-63.11825611 51.16746,-114.285713 114.28571,-114.285713 63.11826,0 114.28572,51.16745689 114.28572,114.285713 z"
+                 d="m -488.5714,63.790752 a 114.28571,114.28571 0 1 1 -228.57143,0 114.28571,114.28571 0 1 1 228.57143,0 z"
                  transform="matrix(0.24253737,0,0,0.24253737,-439.49889,85.461969)" />
             </g>
           </g>
@@ -2142,18 +2142,18 @@
            height="270.38867"
            width="455.57797"
            id="rect4284-3-6"
-           style="-inkscape-font-specification:Serif;font-family:Serif" /></flowRegion><flowPara
+           style="font-family:Serif;-inkscape-font-specification:Serif" /></flowRegion><flowPara
          id="flowPara4286-9-6"
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif">IR temperature sensor:</flowPara><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif">IR temperature sensor:</flowPara><flowPara
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5758">  Phidgets Inc.</flowPara><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5760">  $75/ea. in bulk</flowPara><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5764">  Interface: USB + Python</flowPara><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5774" /><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5770">Keyboard/mouse activity</flowPara></flowRoot>    <flowRoot
        transform="translate(-259.7553,-656.81433)"
        style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
@@ -2165,20 +2165,20 @@
            height="363.32269"
            width="455.57797"
            id="rect4284-3-6-6"
-           style="-inkscape-font-specification:Serif;font-family:Serif" /></flowRegion><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+           style="font-family:Serif;-inkscape-font-specification:Serif" /></flowRegion><flowPara
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5770-6">Collect events in database</flowPara><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5842" /><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5844">Client runs by itself or paired with a central server</flowPara><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5846" /><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5848">Link multiple workstations under a single identity</flowPara><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5850" /><flowPara
-         style="font-size:30px;-inkscape-font-specification:Serif;font-family:Serif"
+         style="font-size:30px;font-family:Serif;-inkscape-font-specification:Serif"
          id="flowPara5852">JSON over HTTP</flowPara></flowRoot>    <flowRoot
        transform="translate(-767.04341,-82.150525)"
        style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Serif;-inkscape-font-specification:Serif"
